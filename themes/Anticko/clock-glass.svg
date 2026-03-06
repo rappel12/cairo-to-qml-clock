@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.47 r22583"
+   width="100"
+   height="100"
+   sodipodi:docname="clock-marks.png">
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="640"
+     inkscape:window-height="480"
+     id="namedview4"
+     showgrid="false"
+     inkscape:zoom="1.23"
+     inkscape:cx="100"
+     inkscape:cy="100"
+     inkscape:window-x="0"
+     inkscape:window-y="30"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="svg2" />
+  <metadata
+     id="metadata8">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs6">
+    <inkscape:perspective
+       id="perspective10"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+  </defs>
+  <image
+     y="0"
+     x="0"
+     id="image12"
+     height="100"
+     width="100"
+     xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMgAAADICAYAAACtWK6eAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A
+/wD/oL2nkwAAAAlwSFlzAAALEQAACxEBf2RfkQAAAAd0SU1FB9oDDgoUAhU5q6UAAASJSURBVHja
+7drba953HcDxzy/nJ8mT86mJS09Qmzkbt9HaSNcOO5xuHgobXcdWi3QX9mLIiogULyaIhxtBmAuI
+KAMFD3g1K1rI3MDWzdl1Urd2TdKmpyRPTJ6c+uTQJ+nP/8GLVNLX6094w4fP5wvfCAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAA/t8lEtw9J44fy167NtKbqa5+YXZ+9rOV9bXtdxYXJorLK38sr159bc+XvnL+2LPHC0oZ
+kHvO4ae+2JufnezPVkXf+PWbkS8sxK25QtR3NMemtg2Rn52O5s7WgScPPvf1o8+9OKTY3VEiwdr7
+3ne/2Xvx/bdPVq3O9aVLc7F8ey5dWlmOkuqayLbfieMnnk13f6o7umqq9v/kWydO/fAHx7aoZkDu
+CS8f/0b23Dvv9O/6zINd9e1N8Y+hkbRYW55s3t4cHd0Rh574fPR01SYfvHs6HSssxfOHvrD5D6/+
+pv/IM49Vq7f2yiRYW7fz4723Z6f73hi8GWnpSrphY2PSVF8V5atJNHe3xeFj347fvvxCNG3floyM
+DMdke3366O4HPnf6/XM9EXFWQRtkXbs2M3Z0YjIXLZlM2tFen3S2NUUUFyLbUB077++OO0uD8fez
+g7H/wJ7YsbU9vXz5UlLbWhVb2hsOqrf2SiVYWzt6HvjpfHGurrmxPNm8vSEqS4vRUFUWj+zfFQ/v
+3hd//dmv4vGvPh07H/p0dG5uSz688GF0dWyIbGlNw5v/uvyqgk6sdW1+fqq1MD0Xu/btiI8118RY
+bjS21DfGwC8H4sDrX4uJ+/8Sffu/ExE3orwsorUyE8ViEg3Zmo3qObHWvZqGbK65IRuFQjE+vrU7
+NnbVx/Tw9ej6ZFPMjQ1F35MHI+JW3Jr9d9z46HwsLM5GbWNNFKamrqpng6x7i/mZN7JlZUeuXriU
+nsksJO3Z8piuKMaBpw9GfmwopsbrYqjixzGfz8d7b59OZ9LGJJumUSgpO6meAVn3Wltqf95Y13rk
+9LmzyXvvjqfdW+uSnp6d0dbSEude/338p7IqSmqqIjc0ERcv5pP88nKaye5NViomfqeeR/q6V1df
+Ol1RUfno+GjuvqWV5WR0bDGtLU+T1fxQXL+xGBeGpuLqlVwMD0+mgyMTSd+27cn86OipX/z6rVdm
+0igquLZ8NbkLNmWi95G9nzg5ePVm1+xqSXz/R4fTf/75b8kHlybjo9xkZMqq0zuxkjzUsy1efP7Q
+lSe+/NJjYxGXlbNB7gkzK5ErT5cH9u15uLervvy+65dySWV1Ns6cGYraTG10tDQkT+3pjeZM2cDh
+l/qfmY4YVs0Guef0bKrJPr73wd6FyeTocsnc/q7OzrZk9XZuca7wp46Outf6Xzl1/koafvMCAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAADwv/kvZ5FelhfwelcAAAAASUVORK5CYII=
+" />
+</svg>
