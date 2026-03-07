@@ -46,8 +46,7 @@ Window {
             var now = new Date()
             root.hours   = now.getHours() % 12
             root.minutes = now.getMinutes()
-            root.seconds = now.
-            getSeconds() + now.getMilliseconds() / 1000
+            root.seconds = now.getSeconds() + now.getMilliseconds() / 1000
             canvas.requestPaint()
         }
     }

@@ -27,27 +27,33 @@ Window {
         // --- Startup Size ---
         Label { text: "Startup Size"; font.bold: true; Layout.columnSpan: 2 }
 
-        Label { text: "Width:" }
+      Label { text: "Width:"; enabled: sizePreset.currentIndex === 4 }
         SpinBox {
             id: widthBox
             from: 100; to: 600; value: clockRoot ? clockRoot.width : 250
+            enabled: sizePreset.currentIndex === 4
         }
 
-        Label { text: "Height:" }
+        Label { text: "Height:"; enabled: sizePreset.currentIndex === 4 }
         SpinBox {
             id: heightBox
             from: 100; to: 600; value: clockRoot ? clockRoot.height : 250
+            enabled: sizePreset.currentIndex === 4
         }
 
         // --- Size Presets ---
-        Label { text: "Presets:"; Layout.columnSpan: 1 }
-        RowLayout {
-            Layout.columnSpan: 1
-            Button { text: "S"; onClicked: { widthBox.value = 150; heightBox.value = 150 } }
-            Button { text: "M"; onClicked: { widthBox.value = 250; heightBox.value = 250 } }
-            Button { text: "L"; onClicked: { widthBox.value = 350; heightBox.value = 350 } }
-            Button { text: "XL"; onClicked: { widthBox.value = 450; heightBox.value = 450 } }
-        }
+        Label { text: "Preset:" }
+        ComboBox {
+            id: sizePreset
+            Layout.fillWidth: true
+            model: ["small (150x150)", "medium (250x250)", "large (350x350)", "extra large (450x450)", "custom"]
+            onActivated: {
+                if (currentIndex === 0) { widthBox.value = 150; heightBox.value = 150 }
+                else if (currentIndex === 1) { widthBox.value = 250; heightBox.value = 250 }
+                else if (currentIndex === 2) { widthBox.value = 350; heightBox.value = 350 }
+                else if (currentIndex === 3) { widthBox.value = 450; heightBox.value = 450 }
+            }
+        } 
 
         // --- Theme ---
         Label { text: "Theme"; font.bold: true; Layout.columnSpan: 2 }
