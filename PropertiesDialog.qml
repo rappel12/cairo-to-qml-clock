@@ -32,6 +32,7 @@ Window {
             id: widthBox
             from: 100; to: 600; value: clockRoot ? clockRoot.width : 250
             enabled: sizePreset.currentIndex === 4
+            editable: true
         }
 
         Label { text: "Height:"; enabled: sizePreset.currentIndex === 4 }
@@ -39,6 +40,7 @@ Window {
             id: heightBox
             from: 100; to: 600; value: clockRoot ? clockRoot.height : 250
             enabled: sizePreset.currentIndex === 4
+            editable: true
         }
 
         // --- Size Presets ---
