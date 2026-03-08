@@ -109,9 +109,9 @@ Window {
         CheckBox { id: showSecondsBox; text: "Show seconds"; checked: true; Layout.columnSpan: 2 }
         CheckBox { id: showDate; text: "Show date"; checked: false; Layout.columnSpan: 2 }
         CheckBox { id: keepOnTop; text: "Keep on top"; checked: clockRoot ? clockRoot.stayOnTop : true; Layout.columnSpan: 2 }
-        CheckBox { id: appearTaskbar; text: "Appear in taskbar"; checked: false; Layout.columnSpan: 2 }
+        // TODO: CheckBox { id: appearTaskbar; text: "Appear in taskbar"; checked: false; Layout.columnSpan: 2 }
         CheckBox { id: stickWorkspace; text: "Stick to every workspace"; checked: false; Layout.columnSpan: 2 }
-        CheckBox { id: use24h; text: "Use 24h mode"; checked: false; Layout.columnSpan: 2 }
+        // TODO: CheckBox { id: use24h; text: "Use 24h mode"; checked: false; Layout.columnSpan: 2 }
 
         // --- Animation Smoothness ---
         Label { text: "Animation Smoothness"; font.bold: true; Layout.columnSpan: 2 }
