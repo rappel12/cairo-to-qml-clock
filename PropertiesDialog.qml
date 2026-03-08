@@ -151,7 +151,10 @@ Window {
                             "Rauland":         "#000000",
                             "Rauland-vintage": "#000000",
                             "Rhythm":          "#ffffff",
-                            "siemens":         "#000000"
+                            "siemens":         "#000000",
+                            "wood":            "#3a2a1a",
+							"street-clock":    "#000000"
+                            
                         }
                         var secondColors = {
                             "Anticko":         "#8b0000",
@@ -161,10 +164,12 @@ Window {
                             "Rauland":         "#ff0000",
                             "Rauland-vintage": "#ff0000",
                             "Rhythm":          "#ff4444",
-                            "siemens":         "#ff0000"
+                            "siemens":         "#ff0000",
+                            "wood":            "#8b0000",
+							"street-clock":    "#ff0000"
                         }
-                        if (handColors[selected]) clockRoot.handColor = handColors[selected]
-                        if (secondColors[selected]) clockRoot.secondColor = secondColors[selected]
+                        clockRoot.handColor = handColors[selected] || "#000000"
+                        clockRoot.secondColor = secondColors[selected] || "#ff0000"
                     }
                     clockRoot.stayOnTop = keepOnTop.checked
                     clockRoot.smoothness = smoothSlider.value
