@@ -31,8 +31,34 @@ Window {
         property alias secondColor: root.secondColor
         property alias stayOnTop: root.stayOnTop
         property alias smoothness: root.smoothness
-        property alias showSeconds: root.showSeconds
+        property alias showSeconds: root.showSeconds      
     }
+  function getHandColor(path) {
+        var handColors = {
+            "Anticko": "#3a2a1a", "glassy": "#ffffff", "glassybest": "#2a5a2a",
+            "railway2": "#f0e68c", "Rauland": "#000000", "Rauland-vintage": "#000000",
+            "Rhythm": "#ffffff", "siemens": "#000000", "wood": "#3a2a1a",
+            "street-clock": "#000000"
+        }
+        var secondColors = {
+            "Anticko": "#8b0000", "glassy": "#ff4444", "glassybest": "#cc0000",
+            "railway2": "#ff4444", "Rauland": "#ff0000", "Rauland-vintage": "#ff0000",
+            "Rhythm": "#ff4444", "siemens": "#ff0000", "wood": "#8b0000",
+            "street-clock": "#ff0000"
+        }
+        for (var name in handColors) {
+            if (path.indexOf(name) >= 0) {
+                root.handColor = handColors[name]
+                root.secondColor = secondColors[name]
+                return
+            }
+        }
+        root.handColor = "#000000"
+        root.secondColor = "#ff0000"
+    }
+
+    Component.onCompleted: getHandColor(root.themePath) 
+   
     property int hours: 0
     property int minutes: 0
     property real seconds: 0
