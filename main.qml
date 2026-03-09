@@ -17,6 +17,7 @@ Window {
     property bool stayOnTop: true
     property int smoothness: 3
     property bool showSeconds: true
+    property bool showDate: false
 
     flags: stayOnTop ? Qt.FramelessWindowHint | Qt.WindowStaysOnTopHint | Qt.Tool
                      : Qt.FramelessWindowHint | Qt.Tool
@@ -31,7 +32,8 @@ Window {
         property alias secondColor: root.secondColor
         property alias stayOnTop: root.stayOnTop
         property alias smoothness: root.smoothness
-        property alias showSeconds: root.showSeconds      
+        property alias showSeconds: root.showSeconds
+        property alias showDate: root.showDate      
     }
   function getHandColor(path) {
         var handColors = {
@@ -156,6 +158,16 @@ Window {
                     ctx.arc(cx, cy, 4, 0, Math.PI * 2)
                     ctx.fillStyle = root.secondColor
                     ctx.fill()
+                } 
+                if (root.showDate) {
+                    var now = new Date()
+                    var day = now.getDate()
+                    var month = now.getMonth() + 1
+                    var dateStr = day + "/" + month
+                    ctx.font = "bold " + Math.round(r * 0.15) + "px sans-serif"
+                    ctx.fillStyle = root.secondColor
+                    ctx.textAlign = "center"
+                    ctx.fillText(dateStr, cx, cy + r * 0.35)
                 }
             }
         }

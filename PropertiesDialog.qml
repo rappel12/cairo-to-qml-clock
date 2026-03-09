@@ -174,6 +174,7 @@ Window {
                     clockRoot.stayOnTop = keepOnTop.checked
                     clockRoot.smoothness = smoothSlider.value
                     clockRoot.showSeconds = showSecondsBox.checked
+                    clockRoot.showDate = showDate.checked
                 }
                 propDialog.close()
             }
