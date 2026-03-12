@@ -11,7 +11,7 @@ Window {
     color: "transparent"
     title: "Cairo Clock"
 
-    property string themePath: "/home/rick/Projects/cairo-to-qml-clock/themes/Anticko/"
+    property string themePath: "/home/rick/Projects/cairo-to-qml-clock/themes/C_Anticko/"
     property color handColor: "#3a2a1a"
     property color secondColor: "#8b0000"
     property bool stayOnTop: true
@@ -22,7 +22,7 @@ Window {
     flags: stayOnTop ? Qt.FramelessWindowHint | Qt.WindowStaysOnTopHint | Qt.Tool
                      : Qt.FramelessWindowHint | Qt.Tool
    Settings {
-        id: settings
+        id: settings    
         property alias x: root.x
         property alias y: root.y
         property alias width: root.width
@@ -35,29 +35,22 @@ Window {
         property alias showSeconds: root.showSeconds
         property alias showDate: root.showDate      
     }
-  function getHandColor(path) {
-        var handColors = {
-            "Anticko": "#3a2a1a", "glassy": "#ffffff", "glassybest": "#2a5a2a",
-            "railway2": "#f0e68c", "Rauland": "#000000", "Rauland-vintage": "#000000",
-            "Rhythm": "#ffffff", "siemens": "#000000", "wood": "#3a2a1a",
-            "street-clock": "#000000"
-        }
-        var secondColors = {
-            "Anticko": "#8b0000", "glassy": "#ff4444", "glassybest": "#cc0000",
-            "railway2": "#ff4444", "Rauland": "#ff0000", "Rauland-vintage": "#ff0000",
-            "Rhythm": "#ff4444", "siemens": "#ff0000", "wood": "#8b0000",
-            "street-clock": "#ff0000"
-        }
-        for (var name in handColors) {
-            if (path.indexOf(name) >= 0) {
-                root.handColor = handColors[name]
-                root.secondColor = secondColors[name]
-                return
-            }
-        }
-        root.handColor = "#000000"
-        root.secondColor = "#ff0000"
+function getHandColor(path) {
+    var handColors = {
+        "C_Anticko": "#3a2a1a", "glassy": "#ffffff", "C_glassybest": "#2a5a2a",
+        "C_Plain-Clock-Roman-Numerals": "#000000",
+        "C_railway2": "#f0e68c", "C_Rauland": "#000000", "C_Rauland-vintage": "#000000",
+        "C_Rhythm": "#ffffff", "C_siemens": "#000000", "C_wood": "#3a2a1a",
+        "C_street-clock": "#000000"
     }
+    var secondColors = {
+        "C_Anticko": "#8b0000", "glassy": "#ff4444", "C_glassybest": "#cc0000",
+        "C_Plain-Clock-Roman-Numerals": "#ff0000",
+        "C_railway2": "#ff4444", "C_Rauland": "#ff0000", "C_Rauland-vintage": "#ff0000",
+        "C_Rhythm": "#ff4444", "C_siemens": "#ff0000", "C_wood": "#8b0000",
+        "C_street-clock": "#ff0000"
+    }
+}
 
     Component.onCompleted: getHandColor(root.themePath) 
    
