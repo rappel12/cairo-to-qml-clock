@@ -84,11 +84,16 @@ Window {
             showDirs: true
             showDotAndDotDot: false
             sortField: FolderListModel.Name
+            onStatusChanged: {
+                if (status === FolderListModel.Ready && clockRoot) {
+                    syncTimer.start()
+				}
+			}
         }
 
     Timer {
         id: syncTimer
-        interval: 150
+        interval: 500
         repeat: false
         onTriggered: {
             if (clockRoot) {
