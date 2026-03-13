@@ -141,6 +141,7 @@ Window {
                     clockRoot.width = widthBox.value
                     clockRoot.height = heightBox.value
                     var selected = themeBox.model[themeBox.currentIndex]
+                    console.log("Selected theme:", selected)
                     if (selected) {
                         clockRoot.themePath = "/home/rick/Projects/cairo-to-qml-clock/themes/" + selected + "/"
                     var handColors = {
