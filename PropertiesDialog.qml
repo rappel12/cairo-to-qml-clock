@@ -106,8 +106,8 @@ Window {
         // --- Display Options ---
         Label { text: "Display Options"; font.bold: true; Layout.columnSpan: 2 }
 
-        CheckBox { id: showSecondsBox; text: "Show seconds"; checked: true; Layout.columnSpan: 2 }
-        CheckBox { id: showDate; text: "Show date"; checked: false; Layout.columnSpan: 2 }
+        CheckBox { id: showSecondsBox; text: "Show seconds"; checked: clockRoot ? clockRoot.showSeconds : true; Layout.columnSpan: 2 }
+        CheckBox { id: showDate; text: "Show date"; checked: clockRoot ? clockRoot.showDate : false; Layout.columnSpan: 2 }
         CheckBox { id: keepOnTop; text: "Keep on top"; checked: clockRoot ? clockRoot.stayOnTop : true; Layout.columnSpan: 2 }
         // TODO: CheckBox { id: appearTaskbar; text: "Appear in taskbar"; checked: false; Layout.columnSpan: 2 }
         CheckBox { id: stickWorkspace; text: "Stick to every workspace"; checked: false; Layout.columnSpan: 2 }
