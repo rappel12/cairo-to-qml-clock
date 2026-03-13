@@ -143,30 +143,30 @@ Window {
                     var selected = themeBox.model[themeBox.currentIndex]
                     if (selected) {
                         clockRoot.themePath = "/home/rick/Projects/cairo-to-qml-clock/themes/" + selected + "/"
-                        var handColors = {
-                            "Anticko":         "#3a2a1a",
-                            "glassy":          "#ffffff",
-                            "glassybest":      "#2a5a2a",
-                            "railway2":        "#f0e68c",
-                            "Rauland":         "#000000",
-                            "Rauland-vintage": "#000000",
-                            "Rhythm":          "#ffffff",
-                            "siemens":         "#000000",
-                            "wood":            "#3a2a1a",
-							"street-clock":    "#000000"
-                            
+                    var handColors = {
+						"C_Anticko":                    "#3a2a1a",
+						"glassy":                       "#ffffff",
+						"C_glassybest":                 "#2a5a2a",
+						"C_Plain-Clock-Roman-Numerals": "#000000",
+						"C_railway2":                   "#f0e68c",
+						"C_Rauland":                    "#000000",
+						"C_Rauland-vintage":            "#000000",
+						"C_Rhythm":                     "#ffffff",
+						"C_siemens":                    "#000000",
+						"C_wood":                       "#3a2a1a",
+						"C_street-clock":               "#000000"        
                         }
-                        var secondColors = {
-                            "Anticko":         "#8b0000",
-                            "glassy":          "#ff4444",
-                            "glassybest":      "#cc0000",
-                            "railway2":        "#ff4444",
-                            "Rauland":         "#ff0000",
-                            "Rauland-vintage": "#ff0000",
-                            "Rhythm":          "#ff4444",
-                            "siemens":         "#ff0000",
-                            "wood":            "#8b0000",
-							"street-clock":    "#ff0000"
+                    var secondColors = {
+						"C_Anticko":                    "#8b0000",
+						"glassy":                       "#ff4444",
+						"C_glassybest":                 "#cc0000",
+						"C_Plain-Clock-Roman-Numerals": "#ff0000",
+						"C_Rauland":                    "#ff0000",
+						"C_Rauland-vintage":            "#ff0000",
+						"C_Rhythm":                     "#ff4444",
+						"C_siemens":                    "#ff0000",
+						"C_wood":                       "#8b0000",
+						"C_street-clock":               "#ff0000"
                         }
                         clockRoot.handColor = handColors[selected] || "#000000"
                         clockRoot.secondColor = secondColors[selected] || "#ff0000"
