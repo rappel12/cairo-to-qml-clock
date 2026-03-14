@@ -160,7 +160,12 @@ Window {
 						"C_Rhythm":                     "#ffffff",
 						"C_siemens":                    "#000000",
 						"C_wood":                       "#3a2a1a",
-						"C_street-clock":               "#000000"        
+						"C_street-clock":               "#000000"
+						"antique": "#000000", "default": "#282d30", "default-24": "#282d30",
+						"fdo": "#000000", "funky": "#00ff00", "gremlin": "#d76565",
+						"gremlin-24": "#d76565", "ipulse": "#282d30", "ipulse-24": "#282d30",
+						"silvia": "#000000", "silvia-24": "#000000", "simple": "#000000",
+						"simple-24": "#000000", "tango": "#000000", "zen": "#724338"        
                         }
                     var secondColors = {
 						"C_Anticko":                    "#8b0000",
@@ -173,6 +178,12 @@ Window {
 						"C_siemens":                    "#ff0000",
 						"C_wood":                       "#8b0000",
 						"C_street-clock":               "#ff0000"
+						"antique": "#ff0000", "default": "#ff0000", "default-24": "#ff0000",
+						"fdo": "#ff0000", "funky": "#00ff00", "gremlin": "#ff0000",
+						"gremlin-24": "#ff0000", "ipulse": "#ff0000", "ipulse-24": "#ff0000",
+						"quartz-24": "#ff0000", "radium": "#ff0000", "radium-24": "#ff0000",
+						"silvia": "#ff0000", "silvia-24": "#ff0000", "simple": "#ff0000",
+						"simple-24": "#ff0000", "tango": "#ff0000", "zen": "#ff0000"
                         }
                         clockRoot.handColor = handColors[selected] || "#000000"
                         clockRoot.secondColor = secondColors[selected] || "#ff0000"
