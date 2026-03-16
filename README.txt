@@ -73,6 +73,5 @@ themes/
 1. Fix Properties dialog: theme dropdown should reflect current theme
 2. Fix Properties dialog: showDate checkbox not pre-populated on open
 3. Implement "stick to every workspace" behavior
-4. Fix size preset not reflecting actual size on startup
-5. Package as .deb/.rpm
-6. Make GitHub repository public
+4. Package as .deb/.rpm
+5. Make GitHub repository public
