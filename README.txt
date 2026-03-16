@@ -70,8 +70,6 @@ themes/
 - showDate checkbox state not pre-populated when Properties opens
 
 ## Next Steps
-1. Fix Properties dialog: theme dropdown should reflect current theme
-2. Fix Properties dialog: showDate checkbox not pre-populated on open
-3. Implement "stick to every workspace" behavior
-4. Package as .deb/.rpm
-5. Make GitHub repository public
+1. Implement "stick to every workspace" behavior
+2. Package as .deb/.rpm
+3. Make GitHub repository public
