@@ -73,3 +73,4 @@ themes/
 1. Implement "stick to every workspace" behavior
 2. Package as .deb/.rpm
 3. Make GitHub repository public
+4. Implement 24-hour mode for -24 themes
