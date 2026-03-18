@@ -11,6 +11,7 @@
 - Show seconds toggle
 - Show date toggle (European format DD/MM)
 - Keep on top toggle
+- Implement 24-hour mode for -24 themes
 - Animation smoothness slider (3 levels)
 - Position/size/theme/settings memory (QtCore Settings)
 - Draggable
@@ -73,4 +74,4 @@ themes/
 1. Implement "stick to every workspace" behavior
 2. Package as .deb/.rpm
 3. Make GitHub repository public
-4. Implement 24-hour mode for -24 themes
+
