@@ -18,6 +18,7 @@ Window {
     property int smoothness: 3
     property bool showSeconds: true
     property bool showDate: false
+    property bool use24h: false
 
     flags: stayOnTop ? Qt.FramelessWindowHint | Qt.WindowStaysOnTopHint | Qt.Tool
                      : Qt.FramelessWindowHint | Qt.Tool
@@ -33,7 +34,8 @@ Window {
         property alias stayOnTop: root.stayOnTop
         property alias smoothness: root.smoothness
         property alias showSeconds: root.showSeconds
-        property alias showDate: root.showDate      
+        property alias showDate: root.showDate
+        property alias use24h: root.use24h      
     }
 function getHandColor(path) {
     var handColors = {
@@ -77,7 +79,7 @@ function getHandColor(path) {
         triggeredOnStart: true
         onTriggered: {
             var now = new Date()
-            root.hours   = now.getHours() % 12
+            root.hours = root.use24h ? now.getHours() : now.getHours() % 12
             root.minutes = now.getMinutes()
             root.seconds = now.getSeconds() + now.getMilliseconds() / 1000
             canvas.requestPaint()
@@ -132,7 +134,7 @@ function getHandColor(path) {
 
                 ctx.clearRect(0, 0, width, height)
 
-                var hr = ((root.hours * 30) + (root.minutes * 0.5)) * Math.PI / 180 - Math.PI / 2
+                var hr = (root.use24h ? (root.hours * 15 + root.minutes * 0.25) : (root.hours * 30 + root.minutes * 0.5)) * Math.PI / 180 - Math.PI / 2
                 ctx.beginPath()
                 ctx.moveTo(cx, cy)
                 ctx.lineTo(cx + Math.cos(hr) * r * 0.5, cy + Math.sin(hr) * r * 0.5)
