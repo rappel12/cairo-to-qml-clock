@@ -42,7 +42,7 @@ Window {
     var xhr = new XMLHttpRequest()
     xhr.open("GET", "file://" + path + "theme.conf", false)
     xhr.send()
-    if (xhr.status === 0) {
+    if (xhr.status === 0 || xhr.status === 200) {
         var lines = xhr.responseText.split("\n")
         for (var i = 0; i < lines.length; i++) {
             var line = lines[i].trim()
