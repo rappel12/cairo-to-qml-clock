@@ -16,17 +16,17 @@ Window {
 
     // Properties passed in from main.qml
     property var clockRoot: null
-    
-   onVisibleChanged: {
-       if (visible && clockRoot) {
-        var w = clockRoot.width
-        if (w <= 150) sizePreset.currentIndex = 0
-        else if (w <= 250) sizePreset.currentIndex = 1
-        else if (w <= 350) sizePreset.currentIndex = 2
-        else if (w <= 450) sizePreset.currentIndex = 3
-        else sizePreset.currentIndex = 4
+
+    onVisibleChanged: {
+        if (visible && clockRoot) {
+            var w = clockRoot.width
+            if (w <= 150) sizePreset.currentIndex = 0
+            else if (w <= 250) sizePreset.currentIndex = 1
+            else if (w <= 350) sizePreset.currentIndex = 2
+            else if (w <= 450) sizePreset.currentIndex = 3
+            else sizePreset.currentIndex = 4
+        }
     }
- }
 
     GridLayout {
         anchors.fill: parent
@@ -38,7 +38,7 @@ Window {
         // --- Startup Size ---
         Label { text: "Startup Size"; font.bold: true; Layout.columnSpan: 2 }
 
-      Label { text: "Width:"; enabled: sizePreset.currentIndex === 4 }
+        Label { text: "Width:"; enabled: sizePreset.currentIndex === 4 }
         SpinBox {
             id: widthBox
             from: 100; to: 600; value: clockRoot ? clockRoot.width : 250
@@ -67,19 +67,29 @@ Window {
                 else if (currentIndex === 3) { widthBox.value = 450; heightBox.value = 450 }
             }
             onVisibleChanged: {
-			if (visible && clockRoot) {
-				var w = clockRoot.width
-				if (w <= 150) sizePreset.currentIndex = 0
-				else if (w <= 250) sizePreset.currentIndex = 1
-				else if (w <= 350) sizePreset.currentIndex = 2
-				else if (w <= 450) sizePreset.currentIndex = 3
-				else sizePreset.currentIndex = 4
-			}
-          }
-        } 
+                if (visible && clockRoot) {
+                    var w = clockRoot.width
+                    if (w <= 150) sizePreset.currentIndex = 0
+                    else if (w <= 250) sizePreset.currentIndex = 1
+                    else if (w <= 350) sizePreset.currentIndex = 2
+                    else if (w <= 450) sizePreset.currentIndex = 3
+                    else sizePreset.currentIndex = 4
+                }
+            }
+        }
 
         // --- Theme ---
         Label { text: "Theme"; font.bold: true; Layout.columnSpan: 2 }
+
+        Label { text: "Folder:" }
+        ComboBox {
+            id: folderBox
+            Layout.fillWidth: true
+            model: ["favorites", "bundled", "custom"]
+            onActivated: {
+                themeListModel.folder = "file:///home/rick/Projects/cairo-to-qml-clock/themes/" + model[currentIndex]
+            }
+        }
 
         Label { text: "Theme:" }
         ComboBox {
@@ -100,7 +110,7 @@ Window {
 
         FolderListModel {
             id: themeListModel
-            folder: "file:///home/rick/Projects/cairo-to-qml-clock/themes"
+            folder: "file:///home/rick/Projects/cairo-to-qml-clock/themes/favorites"
             showFiles: false
             showDirs: true
             showDotAndDotDot: false
@@ -108,26 +118,26 @@ Window {
             onStatusChanged: {
                 if (status === FolderListModel.Ready && clockRoot) {
                     syncTimer.start()
-				}
-			}
+                }
+            }
         }
 
-    Timer {
-        id: syncTimer
-        interval: 500
-        repeat: false
-        onTriggered: {
-            if (clockRoot) {
-                var path = clockRoot.themePath
-                for (var i = 0; i < themeBox.model.length; i++) {
-                    if (path.toLowerCase().indexOf(themeBox.model[i].toLowerCase()) >= 0) {
-                        themeBox.currentIndex = i
-                        break
+        Timer {
+            id: syncTimer
+            interval: 500
+            repeat: false
+            onTriggered: {
+                if (clockRoot) {
+                    var path = clockRoot.themePath
+                    for (var i = 0; i < themeBox.model.length; i++) {
+                        if (path.toLowerCase().indexOf(themeBox.model[i].toLowerCase()) >= 0) {
+                            themeBox.currentIndex = i
+                            break
+                        }
                     }
                 }
             }
         }
-    }
 
         // --- Display Options ---
         Label { text: "Display Options"; font.bold: true; Layout.columnSpan: 2 }
@@ -166,22 +176,24 @@ Window {
                 if (clockRoot) {
                     clockRoot.width = widthBox.value
                     clockRoot.height = heightBox.value
-                    var selected = themeBox.model[themeBox.currentIndex]
-                    if (selected) {
-                        clockRoot.themePath = "/home/rick/Projects/cairo-to-qml-clock/themes/" + selected + "/"
+                    var selectedFolder = folderBox.model[folderBox.currentIndex]
+                    var selectedTheme = themeBox.model[themeBox.currentIndex]
+                    if (selectedTheme) {
+                        var fullPath = "/home/rick/Projects/cairo-to-qml-clock/themes/" + selectedFolder + "/" + selectedTheme + "/"
+                        clockRoot.themePath = fullPath
                         var xhr = new XMLHttpRequest()
-                        xhr.open("GET", "file:///home/rick/Projects/cairo-to-qml-clock/themes/" + selected + "/theme.conf", false)
+                        xhr.open("GET", "file://" + fullPath + "theme.conf", false)
                         xhr.send()
-						var handColor = "#000000"
+                        var handColor = "#000000"
                         var secondColor = "#ff0000"
                         if (xhr.status === 0 || xhr.status === 200) {
                             var lines = xhr.responseText.split("\n")
                             for (var i = 0; i < lines.length; i++) {
                                 var line = lines[i].trim()
-                              if (line.indexOf("hand-color=") >= 0)
-								handColor = line.split("=")[1].trim()
-							if (line.indexOf("second-color=") >= 0)
-								secondColor = line.split("=")[1].trim()  
+                                if (line.indexOf("hand-color=") >= 0)
+                                    handColor = line.split("=")[1].trim()
+                                if (line.indexOf("second-color=") >= 0)
+                                    secondColor = line.split("=")[1].trim()
                             }
                         }
                         clockRoot.handColor = handColor
@@ -193,7 +205,7 @@ Window {
                     clockRoot.showDate = showDate.checked
                     clockRoot.use24h = use24hBox.checked
                 }
-                propDialog.close()
+                
             }
         }
     }

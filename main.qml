@@ -11,7 +11,7 @@ Window {
     color: "transparent"
     title: "Cairo Clock"
 
-    property string themePath: "/home/rick/Projects/cairo-to-qml-clock/themes/C_Anticko/"
+    property string themePath: "/home/rick/Projects/cairo-to-qml-clock/themes/favorites/Anticko/"
     property color handColor: "#3a2a1a"
     property color secondColor: "#8b0000"
     property bool stayOnTop: true
