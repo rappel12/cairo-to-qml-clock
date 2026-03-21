@@ -1,13 +1,14 @@
 # Cairo-to-QML Clock Port
 
-## Status (as of March 11, 2026)
+## Status (as of March 21, 2026)
 - Frameless transparent window
-- 29 themes: 10 custom (C_ prefix), 18 original cairo-clock, 1 reserved (glassy)
+- 30 themes organized in folder-based structure (see Theme Structure below)
 - Theme-aware hand colors with automatic color correction on startup
 - Smooth sweep second hand (16ms timer) — improved over original cairo-clock
 - Right-click menu: Properties, Info, Quit
 - Properties dialog with size presets (small/medium/large/extra large/custom)
 - Custom size entry via editable spinboxes
+- Folder selector ComboBox (favorites/bundled/custom) for theme browsing
 - Show seconds toggle
 - Show date toggle (European format DD/MM)
 - Keep on top toggle
@@ -29,49 +30,57 @@
 
 ## Run
 cd ~/Projects/cairo-to-qml-clock
-qml main.qml
+QML_XHR_ALLOW_FILE_READ=1 qml main.qml
 
 ## Theme Structure
+Themes are organized into three subfolders:
+
 themes/
-  C_Anticko/                    - 12 SVG files + theme.conf
-  C_glassybest/                 - 12 SVG files + theme.conf
-  C_Plain-Clock-Roman-Numerals/ - 12 SVG files + theme.conf
-  C_railway2/                   - 12 SVG files + theme.conf
-  C_Rauland/                    - 12 SVG files + theme.conf
-  C_Rauland-vintage/            - 12 SVG files + theme.conf
-  C_Rhythm/                     - 12 SVG files + theme.conf
-  C_siemens/                    - 12 SVG files + theme.conf
-  C_street-clock/               - 12 SVG files + theme.conf
-  C_wood/                       - 12 SVG files + theme.conf
-  glassy/                       - reserved for original cairo-clock theme (to be added)
-  antique/                      - original cairo-clock theme
-  default/                      - original cairo-clock theme
-  default-24/                   - original cairo-clock theme (24h)
-  fdo/                          - original cairo-clock theme
-  funky/                        - original cairo-clock theme
-  gremlin/                      - original cairo-clock theme
-  gremlin-24/                   - original cairo-clock theme (24h)
-  ipulse/                       - original cairo-clock theme
-  ipulse-24/                    - original cairo-clock theme (24h)
-  quartz-24/                    - original cairo-clock theme (24h)
-  radium/                       - original cairo-clock theme
-  radium-24/                    - original cairo-clock theme (24h)
-  silvia/                       - original cairo-clock theme
-  silvia-24/                    - original cairo-clock theme (24h)
-  simple/                       - original cairo-clock theme
-  simple-24/                    - original cairo-clock theme (24h)
-  tango/                        - original cairo-clock theme
-  zen/                          - original cairo-clock theme
+  favorites/         - curated selection from bundled and custom (default folder)
+    Anticko/
+    glassybest/
+    OldGold/
+    Plain-Clock-Roman-Numerals/
+    railway2/
+    Rauland/
+    Rauland-vintage/
+    Rhythm/
+    street-clock/
+    wood/
+
+  bundled/           - original cairo-clock themes, unmodified
+    antique/
+    default/
+    default-24/
+    fdo/
+    funky/
+    glassy/
+    gremlin/
+    gremlin-24/
+    ipulse/
+    ipulse-24/
+    quartz-24/
+    radium/
+    radium-24/
+    silvia/
+    silvia-24/
+    simple/
+    simple-24/
+    siemens/
+    tango/
+    zen/
+
+  custom/            - locally created themes (empty, reserved for future use)
+
+Each theme folder contains 12 SVG files + theme.conf
 
 ## Known Issues
 - SVG hand files have embedded PNGs with offset pivot points
   making native SVG hand rotation unreliable
 - Current solution: Canvas-drawn hands over SVG face layers
-- Properties dialog theme dropdown always displays C_Anticko at top
 - showDate checkbox state not pre-populated when Properties opens
 
 ## Next Steps
 1. Implement "stick to every workspace" behavior
 2. Package as .deb/.rpm
 3. Make GitHub repository public
-
