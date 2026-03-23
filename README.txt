@@ -18,6 +18,7 @@
 - Position/size/theme/settings memory (QtCore Settings)
 - Draggable
 - Developed with AI assistance as a learning project
+- GPL v2 licensed (see LICENSE file)
 
 ## Advantages over original cairo-clock 0.3.4
 - Runs on modern Linux (Qt6, no deprecated libglade2 dependency)
@@ -78,8 +79,9 @@ Each theme folder contains 12 SVG files + theme.conf
 - SVG hand files have embedded PNGs with offset pivot points
   making native SVG hand rotation unreliable
 - Current solution: Canvas-drawn hands over SVG face layers
-- showDate checkbox state not pre-populated when Properties opens
+- Keep on top may have a brief delay activating on some window managers
 
 ## Next Steps
 1. Package as .deb/.rpm
 2. Make GitHub repository public
+

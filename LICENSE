@@ -1,0 +1,33 @@
+GNU GENERAL PUBLIC LICENSE
+Version 2, June 1991
+
+Copyright (C) 2025-2026 Rick Appel
+Developed with AI assistance (Anthropic Claude)
+
+Based on MacSlow's Cairo-Clock 0.3.4
+Copyright (C) 2007 Mirco "MacSlow" Müller <macslow@bangang.de>
+
+This program is free software; you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation; either version 2 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program; if not, write to the Free Software
+Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+
+---
+
+This project is a Qt6 QML reimplementation of MacSlow's Cairo-Clock,
+rewritten to run on modern Linux systems without deprecated dependencies.
+
+The original clock face themes are redistributed under their original
+GPL v2 license. Additional themes included in the favorites folder
+were sourced from gnome-look.org and are believed to be GPL v2 compatible.
+If you are the author of any included theme and have concerns,
+please contact the project maintainer.
