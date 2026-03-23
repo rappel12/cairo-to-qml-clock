@@ -82,4 +82,3 @@ Each theme folder contains 12 SVG files + theme.conf
 
 ## Next Steps
 1. Package as .deb/.rpm
-2. Make GitHub repository public
