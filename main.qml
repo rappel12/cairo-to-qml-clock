@@ -19,7 +19,7 @@ Window {
     property bool showSeconds: true
     property bool showDate: false
     property bool use24h: false
-	property bool stickWorkspace: false
+	property bool stickWorkspace: true
     flags: stayOnTop ? Qt.FramelessWindowHint | Qt.WindowStaysOnTopHint | Qt.Tool
                      : Qt.FramelessWindowHint | Qt.Tool
    Settings {
