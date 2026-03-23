@@ -1,6 +1,6 @@
 # Cairo-to-QML Clock Port
 
-## Status (as of March 21, 2026)
+## Status (as of March 22, 2026)
 - Frameless transparent window
 - 30 themes organized in folder-based structure (see Theme Structure below)
 - Theme-aware hand colors with automatic color correction on startup
@@ -14,6 +14,7 @@
 - Keep on top toggle
 - Implement 24-hour mode for -24 themes
 - Animation smoothness slider (3 levels)
+- Sticks to every workspace
 - Position/size/theme/settings memory (QtCore Settings)
 - Draggable
 - Developed with AI assistance as a learning project
@@ -29,8 +30,7 @@
 - Runner symlink: /usr/local/bin/qml -> /usr/lib/qt6/bin/qml
 
 ## Run
-cd ~/Projects/cairo-to-qml-clock
-QML_XHR_ALLOW_FILE_READ=1 qml main.qml
+~/Projects/cairo-to-qml-clock/cairo-qml-clock.sh
 
 ## Theme Structure
 Themes are organized into three subfolders:
@@ -81,6 +81,5 @@ Each theme folder contains 12 SVG files + theme.conf
 - showDate checkbox state not pre-populated when Properties opens
 
 ## Next Steps
-1. Implement "stick to every workspace" behavior
-2. Package as .deb/.rpm
-3. Make GitHub repository public
+1. Package as .deb/.rpm
+2. Make GitHub repository public
