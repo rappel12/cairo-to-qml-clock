@@ -146,7 +146,7 @@ Window {
         CheckBox { id: showDate; text: "Show date"; checked: clockRoot ? clockRoot.showDate : false; Layout.columnSpan: 2 }
         CheckBox { id: keepOnTop; text: "Keep on top"; checked: clockRoot ? clockRoot.stayOnTop : true; Layout.columnSpan: 2 }
         // TODO: CheckBox { id: appearTaskbar; text: "Appear in taskbar"; checked: false; Layout.columnSpan: 2 }
-        CheckBox { id: stickWorkspace; text: "Stick to every workspace"; checked: false; Layout.columnSpan: 2 }
+        CheckBox { id: stickWorkspace; text: "Stick to every workspace"; checked: clockRoot ? clockRoot.stickWorkspace : false; Layout.columnSpan: 2 }
         CheckBox { id: use24hBox; text: "Use 24h mode"; checked: clockRoot ? clockRoot.use24h : false; Layout.columnSpan: 2 }
 
         // --- Animation Smoothness ---
@@ -204,6 +204,7 @@ Window {
                     clockRoot.showSeconds = showSecondsBox.checked
                     clockRoot.showDate = showDate.checked
                     clockRoot.use24h = use24hBox.checked
+                    clockRoot.stickWorkspace = stickWorkspace.checked
                 }
                 
             }

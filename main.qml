@@ -19,7 +19,7 @@ Window {
     property bool showSeconds: true
     property bool showDate: false
     property bool use24h: false
-
+	property bool stickWorkspace: false
     flags: stayOnTop ? Qt.FramelessWindowHint | Qt.WindowStaysOnTopHint | Qt.Tool
                      : Qt.FramelessWindowHint | Qt.Tool
    Settings {
@@ -35,7 +35,8 @@ Window {
         property alias smoothness: root.smoothness
         property alias showSeconds: root.showSeconds
         property alias showDate: root.showDate
-        property alias use24h: root.use24h      
+        property alias use24h: root.use24h
+        property alias stickWorkspace: root.stickWorkspace      
     }
 
    function getHandColor(path) {
