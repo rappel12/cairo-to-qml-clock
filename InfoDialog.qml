@@ -37,7 +37,7 @@ Window {
         }
 
         Label {
-            text: "© 2026 Rick"
+            text: "© 2025-2026 Rick Appel"
             Layout.alignment: Qt.AlignHCenter
         }
 
@@ -46,7 +46,16 @@ Window {
             horizontalAlignment: Text.AlignHCenter
             Layout.alignment: Qt.AlignHCenter
         }
-
+        Label {
+			text: "Released under GPL v2"
+			Layout.alignment: Qt.AlignHCenter
+		}
+        Label {
+			text: "Developed with AI assistance"
+			horizontalAlignment: Text.AlignHCenter
+			Layout.alignment: Qt.AlignHCenter
+		}
+        
         Button {
             text: "Close"
             Layout.alignment: Qt.AlignHCenter
