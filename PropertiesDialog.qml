@@ -87,7 +87,7 @@ Window {
             Layout.fillWidth: true
             model: ["favorites", "bundled", "custom"]
             onActivated: {
-                themeListModel.folder = "file:///home/rick/Projects/cairo-to-qml-clock/themes/" + model[currentIndex]
+            "file://" + clockRoot.appDir + "themes/" + model[currentIndex]   
             }
         }
 
@@ -110,7 +110,7 @@ Window {
 
         FolderListModel {
             id: themeListModel
-            folder: "file:///home/rick/Projects/cairo-to-qml-clock/themes/favorites"
+            folder: "file://" + clockRoot.appDir + "themes/favorites"
             showFiles: false
             showDirs: true
             showDotAndDotDot: false
@@ -179,7 +179,7 @@ Window {
                     var selectedFolder = folderBox.model[folderBox.currentIndex]
                     var selectedTheme = themeBox.model[themeBox.currentIndex]
                     if (selectedTheme) {
-                        var fullPath = "/home/rick/Projects/cairo-to-qml-clock/themes/" + selectedFolder + "/" + selectedTheme + "/"
+                        var fullPath = clockRoot.appDir + "themes/" + selectedFolder + "/" + selectedTheme + "/"
                         clockRoot.themePath = fullPath
                         var xhr = new XMLHttpRequest()
                         xhr.open("GET", "file://" + fullPath + "theme.conf", false)
@@ -204,7 +204,7 @@ Window {
                     clockRoot.showSeconds = showSecondsBox.checked
                     clockRoot.showDate = showDate.checked
                     clockRoot.use24h = use24hBox.checked
-                    clockRoot.stickWorkspace = stickWorkspace.checked
+                    // clockRoot.stickWorkspace = stickWorkspace.checked
                     
                 }
                 

@@ -10,8 +10,9 @@ Window {
     visible: true
     color: "transparent"
     title: "Cairo Clock"
-
-    property string themePath: "/home/rick/Projects/cairo-to-qml-clock/themes/favorites/Anticko/"
+	
+	property string appDir: Qt.resolvedUrl(".").toString().replace("file://", "")
+    property string themePath: appDir + "themes/favorites/Anticko/"
     property color handColor: "#3a2a1a"
     property color secondColor: "#8b0000"
     property bool stayOnTop: true
@@ -59,7 +60,8 @@ Window {
         root.secondColor = "#ff0000"
     }
 }
-    Component.onCompleted: getHandColor(root.themePath) 
+    Component.onCompleted: getHandColor(root.themePath)
+
    
     property int hours: 0
     property int minutes: 0
