@@ -87,7 +87,7 @@ Window {
             Layout.fillWidth: true
             model: ["favorites", "bundled", "custom"]
             onActivated: {
-            "file://" + clockRoot.appDir + "themes/" + model[currentIndex]   
+				themeListModel.folder = "file://" + clockRoot.appDir + "themes/" + model[currentIndex]  
             }
         }
 
