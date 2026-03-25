@@ -6,8 +6,8 @@ fi
 if [ ! -f "$QML" ]; then
     QML=$(find /usr -name "qml" -type f 2>/dev/null | head -1)
 fi
-cd /usr/share/cairo-qml-clock
-QML_XHR_ALLOW_FILE_READ=1 $QML main.qml &
+QML_XHR_ALLOW_FILE_READ=1 $QML /usr/share/cairo-qml-clock/main.qml &
 sleep 1
 wmctrl -r "Cairo Clock" -b add,sticky
+xdotool search --name "Cairo Clock" set_desktop_for_window 0xffffffff
 wait

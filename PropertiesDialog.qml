@@ -8,9 +8,9 @@ Window {
     id: propDialog
     title: "Cairo QML Clock - Properties"
     width: 420
-    height: 750
+    height: 850
     minimumWidth: 320
-    minimumHeight: 750
+    minimumHeight: 850
     flags: Qt.Dialog
     modality: Qt.NonModal
 
@@ -146,9 +146,18 @@ Window {
         CheckBox { id: showDate; text: "Show date"; checked: clockRoot ? clockRoot.showDate : false; Layout.columnSpan: 2 }
         CheckBox { id: keepOnTop; text: "Keep on top"; checked: clockRoot ? clockRoot.stayOnTop : true; Layout.columnSpan: 2 }
         // TODO: CheckBox { id: appearTaskbar; text: "Appear in taskbar"; checked: false; Layout.columnSpan: 2 }
-        // TODO  CheckBox { id: stickWorkspace; text: "Stick to every workspace"; checked: clockRoot ? clockRoot.stickWorkspace : false; Layout.columnSpan: 2 }
+
         CheckBox { id: use24hBox; text: "Use 24h mode"; checked: clockRoot ? clockRoot.use24h : false; Layout.columnSpan: 2 }
 
+		 Text {
+			text: "Sticks to every workspace (always on)"
+			Layout.columnSpan: 2
+			Layout.fillWidth: true
+			color: "gray"
+			wrapMode: Text.WordWrap
+		 }
+		
+		
         // --- Animation Smoothness ---
         Label { text: "Animation Smoothness"; font.bold: true; Layout.columnSpan: 2 }
 
