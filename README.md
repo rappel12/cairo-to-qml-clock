@@ -18,6 +18,7 @@
 - Position/size/theme/settings memory (QtCore Settings)
 - Draggable
 - Developed with AI assistance as a learning project
+- GPL v2 licensed (see LICENSE file)
 
 ## Advantages over original cairo-clock 0.3.4
 - Runs on modern Linux (Qt6, no deprecated libglade2 dependency)
@@ -28,6 +29,14 @@
 - Qt 6.8.2 (qt6-declarative-dev, qt6-declarative-dev-tools)
 - qml-qt6
 - Runner symlink: /usr/local/bin/qml -> /usr/lib/qt6/bin/qml
+
+## Installation
+
+### Debian/Ubuntu/MX Linux (.deb)
+sudo dpkg -i cairo-qml-clock_0.1.0.deb
+
+### Fedora/PCLinuxOS (.rpm)
+sudo dnf install cairo-qml-clock-0.1.0-1.fc43.noarch.rpm
 
 ## Run
 ~/Projects/cairo-to-qml-clock/cairo-qml-clock.sh
@@ -72,13 +81,14 @@ themes/
 
   custom/            - locally created themes (empty, reserved for future use)
 
-Each theme folder contains 12 SVG files + theme.conf
+Each theme folder contains about 12 SVG files + theme.conf
 
 ## Known Issues
 - SVG hand files have embedded PNGs with offset pivot points
   making native SVG hand rotation unreliable
 - Current solution: Canvas-drawn hands over SVG face layers
-- showDate checkbox state not pre-populated when Properties opens
+- Keep on top may have a brief delay activating on some window managers
 
 ## Next Steps
-1. Package as .deb/.rpm
+
+

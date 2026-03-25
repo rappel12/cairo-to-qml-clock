@@ -30,6 +30,14 @@
 - qml-qt6
 - Runner symlink: /usr/local/bin/qml -> /usr/lib/qt6/bin/qml
 
+## Installation
+
+### Debian/Ubuntu/MX Linux (.deb)
+sudo dpkg -i cairo-qml-clock_0.1.0.deb
+
+### Fedora/PCLinuxOS (.rpm)
+sudo dnf install cairo-qml-clock-0.1.0-1.fc43.noarch.rpm
+
 ## Run
 ~/Projects/cairo-to-qml-clock/cairo-qml-clock.sh
 
@@ -82,5 +90,5 @@ Each theme folder contains 12 SVG files + theme.conf
 - Keep on top may have a brief delay activating on some window managers
 
 ## Next Steps
-1. Package as .deb/.rpm
+
 
