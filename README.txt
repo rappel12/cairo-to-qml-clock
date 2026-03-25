@@ -35,8 +35,12 @@
 ### Debian/Ubuntu/MX Linux (.deb)
 sudo dpkg -i cairo-qml-clock_0.1.0.deb
 
-### Fedora/PCLinuxOS (.rpm)
+### Fedora (.rpm)
 sudo dnf install cairo-qml-clock-0.1.0-1.fc43.noarch.rpm
+
+### PCLinuxOS (.rpm)
+sudo rpm -i cairo-qml-clock-0.1.0-1.fc43.noarch.rpm
+Note: Built on Fedora 43 - fc43 label is cosmetic only
 
 ## Run
 ~/Projects/cairo-to-qml-clock/cairo-qml-clock.sh
