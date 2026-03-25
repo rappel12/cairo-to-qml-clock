@@ -1,4 +1,4 @@
-# Cairo-to-QML Clock Port
+Cairo-to-QML Clock Port
 
 ## Status (as of March 22, 2026)
 - Frameless transparent window
@@ -29,6 +29,7 @@
 - Qt 6.8.2 (qt6-declarative-dev, qt6-declarative-dev-tools)
 - qml-qt6
 - Runner symlink: /usr/local/bin/qml -> /usr/lib/qt6/bin/qml
+- xdotool
 
 ## Installation
 
@@ -92,7 +93,6 @@ Each theme folder contains 12 SVG files + theme.conf
   making native SVG hand rotation unreliable
 - Current solution: Canvas-drawn hands over SVG face layers
 - Keep on top may have a brief delay activating on some window managers
+- Sticky workspace uses X11/wmctrl and xdotool — may not work on pure Wayland sessions
 
 ## Next Steps
-
-
