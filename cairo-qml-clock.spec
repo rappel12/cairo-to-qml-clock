@@ -9,6 +9,7 @@ Source0:        %{name}-%{version}.tar.gz
 
 Requires:       qt6-qtdeclarative
 Requires:       wmctrl
+Requires:       xdotool
 
 BuildArch:      noarch
 
@@ -43,6 +44,7 @@ fi
 QML_XHR_ALLOW_FILE_READ=1 $QML /usr/share/cairo-qml-clock/main.qml &
 sleep 1
 wmctrl -r "Cairo Clock" -b add,sticky
+xdotool search --name "Cairo Clock" set_desktop_for_window 0xffffffff
 SCRIPT
 chmod +x %{buildroot}/usr/bin/cairo-qml-clock
 
