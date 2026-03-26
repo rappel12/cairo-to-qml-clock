@@ -12,6 +12,7 @@ Requires:       wmctrl
 Requires:       xdotool
 
 BuildArch:      noarch
+%global __brp_mangle_shebangs_exclude_from cairo-qml-clock
 
 %description
 A modern reimplementation of MacSlow's cairo-clock using Qt6 QML.
@@ -33,7 +34,7 @@ cp PropertiesDialog.qml %{buildroot}/usr/share/cairo-qml-clock/
 cp -r themes %{buildroot}/usr/share/cairo-qml-clock/
 
 cat > %{buildroot}/usr/bin/cairo-qml-clock << 'SCRIPT'
-#!/bin/bash
+#! /bin/bash
 QML=/usr/bin/qml
 if [ ! -f "$QML" ]; then
     QML=/usr/lib64/qt6/bin/qml
@@ -48,6 +49,7 @@ xdotool search --name "Cairo Clock" set_desktop_for_window 0xffffffff
 wait
 SCRIPT
 chmod +x %{buildroot}/usr/bin/cairo-qml-clock
+sed -i 's|#!/usr/bin/bash|#!/bin/bash|' %{buildroot}/usr/bin/cairo-qml-clock
 
 cat > %{buildroot}/usr/share/applications/cairo-qml-clock.desktop << 'DESKTOP'
 [Desktop Entry]
@@ -64,6 +66,9 @@ DESKTOP
 /usr/share/cairo-qml-clock/
 /usr/bin/cairo-qml-clock
 /usr/share/applications/cairo-qml-clock.desktop
+
+%post
+sed -i 's|#!/usr/bin/bash|#!/bin/bash|' /usr/bin/cairo-qml-clock
 
 %changelog
 * Mon Mar 24 2026 Rick Appel <> - 0.1.0-1
