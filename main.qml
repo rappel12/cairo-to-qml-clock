@@ -21,8 +21,8 @@ Window {
     property bool showDate: false
     property bool use24h: false
 	property bool stickWorkspace: true
-    flags: stayOnTop ? Qt.FramelessWindowHint | Qt.WindowStaysOnTopHint | Qt.Tool
-                     : Qt.FramelessWindowHint | Qt.Tool
+    flags: stayOnTop ? Qt.FramelessWindowHint | Qt.WindowStaysOnTopHint
+                     : Qt.FramelessWindowHint
    Settings {
         id: settings    
         property alias x: root.x
@@ -82,6 +82,7 @@ Window {
     }
 
    MouseArea {
+<<<<<<< HEAD
     anchors.fill: parent
     acceptedButtons: Qt.LeftButton | Qt.RightButton
     onPressed: function(mouse) {
@@ -89,6 +90,17 @@ Window {
             contextMenu.popup()
         } else {
             root.startSystemMove()
+=======
+        anchors.fill: parent
+        acceptedButtons: Qt.LeftButton | Qt.RightButton
+         onPressed: function(mouse) {
+            if (mouse.button === Qt.RightButton) {
+                contextMenu.popup()
+             } else {
+                root.startSystemMove()
+                
+            }
+>>>>>>> 31e5cbe (Fix Wayland dragging: use root.startSystemMove(), remove Qt.Tool flag)
         }
     }
 }
