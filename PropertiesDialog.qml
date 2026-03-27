@@ -8,9 +8,9 @@ Window {
     id: propDialog
     title: "Cairo QML Clock - Properties"
     width: 420
-    height: 850
+    height: 750
     minimumWidth: 320
-    minimumHeight: 850
+    minimumHeight: 750
     flags: Qt.Dialog
     modality: Qt.NonModal
 
