@@ -82,23 +82,16 @@ Window {
     }
 
    MouseArea {
-        anchors.fill: parent
-        acceptedButtons: Qt.LeftButton | Qt.RightButton
-        property point lastPos
-         onPressed: function(mouse) {
-            if (mouse.button === Qt.RightButton) {
-                contextMenu.popup()
-            } else {
-                lastPos = Qt.point(mouseX, mouseY)
-            }
-        }
-        onPositionChanged: {
-            if (pressedButtons & Qt.LeftButton) {
-                root.x += mouseX - lastPos.x
-                root.y += mouseY - lastPos.y
-            }
+    anchors.fill: parent
+    acceptedButtons: Qt.LeftButton | Qt.RightButton
+    onPressed: function(mouse) {
+        if (mouse.button === Qt.RightButton) {
+            contextMenu.popup()
+        } else {
+            root.startSystemMove()
         }
     }
+}
 
     Menu {
         id: contextMenu
