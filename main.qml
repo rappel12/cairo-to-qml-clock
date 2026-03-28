@@ -82,7 +82,6 @@ Window {
     }
 
    MouseArea {
-<<<<<<< HEAD
     anchors.fill: parent
     acceptedButtons: Qt.LeftButton | Qt.RightButton
     onPressed: function(mouse) {
@@ -90,17 +89,6 @@ Window {
             contextMenu.popup()
         } else {
             root.startSystemMove()
-=======
-        anchors.fill: parent
-        acceptedButtons: Qt.LeftButton | Qt.RightButton
-         onPressed: function(mouse) {
-            if (mouse.button === Qt.RightButton) {
-                contextMenu.popup()
-             } else {
-                root.startSystemMove()
-                
-            }
->>>>>>> 31e5cbe (Fix Wayland dragging: use root.startSystemMove(), remove Qt.Tool flag)
         }
     }
 }
