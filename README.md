@@ -1,6 +1,6 @@
-Cairo-to-QML Clock Port
+# Cairo-to-QML Clock Port
 
-## Status (as of March 22, 2026)
+## Status (as of March 27, 2026)
 - Frameless transparent window
 - 30 themes organized in folder-based structure (see Theme Structure below)
 - Theme-aware hand colors with automatic color correction on startup
@@ -12,11 +12,11 @@ Cairo-to-QML Clock Port
 - Show seconds toggle
 - Show date toggle (European format DD/MM)
 - Keep on top toggle
-- Implement 24-hour mode for -24 themes
+- 24-hour mode for -24 themes
 - Animation smoothness slider (3 levels)
-- Sticks to every workspace
+- Sticks to every workspace (X11 only)
 - Position/size/theme/settings memory (QtCore Settings)
-- Draggable
+- Draggable on both X11 and Wayland
 - Developed with AI assistance as a learning project
 - GPL v2 licensed (see LICENSE file)
 
@@ -24,67 +24,44 @@ Cairo-to-QML Clock Port
 - Runs on modern Linux (Qt6, no deprecated libglade2 dependency)
 - Smoother second hand sweep
 - Reliable keep-on-top behavior
+- Wayland compatible
 
 ## Dependencies
-- Qt 6.8.2 (qt6-declarative-dev, qt6-declarative-dev-tools)
-- qml-qt6
-- Runner symlink: /usr/local/bin/qml -> /usr/lib/qt6/bin/qml
+- Qt6 (`/usr/lib64/qt6/bin/qml`)
+- wmctrl
 - xdotool
 
 ## Installation
 
-### Debian/Ubuntu/MX Linux (.deb)
-sudo dpkg -i cairo-qml-clock_0.1.0.deb
-
 ### Fedora (.rpm)
+```bash
 sudo dnf install cairo-qml-clock-0.1.0-1.fc43.noarch.rpm
+```
 
 ### PCLinuxOS (.rpm)
+```bash
 sudo rpm -i cairo-qml-clock-0.1.0-1.fc43.noarch.rpm
+```
 Note: Built on Fedora 43 - fc43 label is cosmetic only
 
+### Debian/Ubuntu/MX Linux (.deb)
+```bash
+sudo dpkg -i cairo-qml-clock_0.1.0.deb
+```
+
 ## Run
-~/Projects/cairo-to-qml-clock/cairo-qml-clock.sh
+```bash
+cairo-qml-clock
+```
 
 ## Theme Structure
 Themes are organized into three subfolders:
-
+```
 themes/
   favorites/         - curated selection from bundled and custom (default folder)
-    Anticko/
-    glassybest/
-    OldGold/
-    Plain-Clock-Roman-Numerals/
-    railway2/
-    Rauland/
-    Rauland-vintage/
-    Rhythm/
-    street-clock/
-    wood/
-
   bundled/           - original cairo-clock themes, unmodified
-    antique/
-    default/
-    default-24/
-    fdo/
-    funky/
-    glassy/
-    gremlin/
-    gremlin-24/
-    ipulse/
-    ipulse-24/
-    quartz-24/
-    radium/
-    radium-24/
-    silvia/
-    silvia-24/
-    simple/
-    simple-24/
-    siemens/
-    tango/
-    zen/
-
   custom/            - locally created themes (empty, reserved for future use)
+```
 
 Each theme folder contains 12 SVG files + theme.conf
 
@@ -93,6 +70,4 @@ Each theme folder contains 12 SVG files + theme.conf
   making native SVG hand rotation unreliable
 - Current solution: Canvas-drawn hands over SVG face layers
 - Keep on top may have a brief delay activating on some window managers
-- Sticky workspace uses X11/wmctrl and xdotool — may not work on pure Wayland sessions
-
-## Next Steps
+- Sticky workspace uses wmctrl/xdotool — works on X11 only, not Wayland
