@@ -1,32 +1,40 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
-
 <svg
    xmlns:dc="http://purl.org/dc/elements/1.1/"
-   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:cc="http://web.resource.org/cc/"
    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
    xmlns:svg="http://www.w3.org/2000/svg"
    xmlns="http://www.w3.org/2000/svg"
    xmlns:xlink="http://www.w3.org/1999/xlink"
-   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:sodipodi="http://inkscape.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    width="100"
    height="100"
    id="svg2"
    sodipodi:version="0.32"
-   inkscape:version="0.48.2 r9819"
+   inkscape:version="0.43"
    version="1.0"
+   sodipodi:docbase="/home/mirco/src/cairo-demo/cairo-candy/themes/Glassy"
    sodipodi:docname="clock-face-shadow.svg">
   <defs
      id="defs4">
     <linearGradient
        id="linearGradient2202">
       <stop
-         style="stop-color:#808080;stop-opacity:0.78431374;"
+         style="stop-color:#ffffff;stop-opacity:0;"
          offset="0"
+         id="stop2204" />
+      <stop
+         id="stop2202"
+         offset="0.78765059"
+         style="stop-color:#7f7f7f;stop-opacity:0.49803922;" />
+      <stop
+         style="stop-color:#3f3f3f;stop-opacity:0.74901961;"
+         offset="0.93802023"
          id="stop2205" />
       <stop
-         style="stop-color:#202020;stop-opacity:0.92156863;"
+         style="stop-color:#000000;stop-opacity:1;"
          offset="1"
          id="stop2206" />
     </linearGradient>
@@ -34,12 +42,12 @@
        inkscape:collect="always"
        xlink:href="#linearGradient2202"
        id="radialGradient2200"
-       cx="27.918428"
-       cy="22.986475"
-       fx="27.918428"
-       fy="22.986475"
+       cx="28.22608"
+       cy="23.644703"
+       fx="28.22608"
+       fy="23.644703"
        r="18.674698"
-       gradientTransform="matrix(1.083881,-5.092909e-17,2.121626e-15,0.737156,-2.380917,5.997149)"
+       gradientTransform="matrix(1.067943,2.242373e-32,7.881997e-33,0.726316,-1.917757,6.246314)"
        gradientUnits="userSpaceOnUse" />
   </defs>
   <sodipodi:namedview
@@ -49,19 +57,17 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="7.9230121"
-     inkscape:cx="45.211376"
-     inkscape:cy="55.729901"
+     inkscape:zoom="9.96"
+     inkscape:cx="50"
+     inkscape:cy="50"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showguides="true"
      inkscape:guide-bbox="true"
-     inkscape:window-width="912"
-     inkscape:window-height="817"
-     inkscape:window-x="50"
-     inkscape:window-y="203"
-     showgrid="false"
-     inkscape:window-maximized="0">
+     inkscape:window-width="1590"
+     inkscape:window-height="1172"
+     inkscape:window-x="0"
+     inkscape:window-y="0">
     <sodipodi:guide
        orientation="horizontal"
        position="50"
