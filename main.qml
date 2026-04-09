@@ -10,6 +10,7 @@ Window {
     visible: true
     color: "transparent"
     title: "Cairo Clock"
+
 	
 	property string appDir: Qt.resolvedUrl(".").toString().replace("file://", "")
     property string themePath: appDir + "themes/favorites/Anticko/"
@@ -21,8 +22,9 @@ Window {
     property bool showDate: false
     property bool use24h: false
 	property bool stickWorkspace: true
-    flags: stayOnTop ? Qt.FramelessWindowHint | Qt.WindowStaysOnTopHint
-                     : Qt.FramelessWindowHint
+    property bool isWayland: Qt.platform.pluginName === "wayland"
+    flags: stayOnTop ? Qt.FramelessWindowHint | Qt.WindowStaysOnTopHint | (isWayland ? Qt.Window : Qt.Tool)
+                     : Qt.FramelessWindowHint | (isWayland ? Qt.Window : Qt.Tool)
    Settings {
         id: settings    
         property alias x: root.x
