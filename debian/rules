@@ -1,0 +1,13 @@
+#!/usr/bin/make -f
+%:
+	dh $@
+
+override_dh_auto_install:
+	mkdir -p debian/cairo-qml-clock/usr/share/cairo-qml-clock
+	mkdir -p debian/cairo-qml-clock/usr/bin
+	mkdir -p debian/cairo-qml-clock/usr/share/applications
+	cp main.qml debian/cairo-qml-clock/usr/share/cairo-qml-clock/
+	cp InfoDialog.qml debian/cairo-qml-clock/usr/share/cairo-qml-clock/
+	cp PropertiesDialog.qml debian/cairo-qml-clock/usr/share/cairo-qml-clock/
+	cp -r themes debian/cairo-qml-clock/usr/share/cairo-qml-clock/
+	cp cairo-qml-clock.desktop debian/cairo-qml-clock/usr/share/applications/

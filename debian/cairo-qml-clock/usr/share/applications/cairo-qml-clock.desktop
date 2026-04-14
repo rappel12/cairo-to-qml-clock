@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=Cairo QML Clock
+Comment=A cairo-clock replacement built with Qt6 QML
+Exec=cairo-qml-clock
+Icon=clock
+Type=Application
+Categories=Utility;Clock;
+StartupNotify=false
+Terminal=false

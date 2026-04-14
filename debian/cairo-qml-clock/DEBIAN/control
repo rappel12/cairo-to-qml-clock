@@ -1,0 +1,14 @@
+Package: cairo-qml-clock
+Version: 0.1.0-1
+Architecture: all
+Maintainer: Rick Appel <rappel12@gmail.com>
+Installed-Size: 5459
+Depends: qml-qt6, wmctrl, xdotool
+Section: utils
+Priority: optional
+Homepage: https://github.com/rappel12/cairo-to-qml-clock
+Description: A cairo-clock replacement built with Qt6 QML
+ A modern reimplementation of MacSlow's cairo-clock using Qt6 QML.
+ Runs on modern Linux systems without deprecated dependencies.
+ Features smooth sweep second hand, multiple themes, and sticky
+ workspace support.

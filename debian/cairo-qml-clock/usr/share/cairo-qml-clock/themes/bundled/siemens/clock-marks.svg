@@ -1,0 +1,45 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" 
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg
+  version="1.1" 
+  id="clock-marks"
+  width="100px" height="100px"
+  viewBox="0 0 466 466"
+  onload="init()"
+  xmlns="http://www.w3.org/2000/svg" 
+  xmlns:xlink="http://www.w3.org/1999/xlink"
+>
+  <defs>
+    <!-- Minute and hour markers: -->
+    <rect id="majorHourMarker" x="-7.25" y="-191" width="14.5" height="60"   fill="black" />
+    <rect id="minorHourMarker" x="-7.25" y="-191" width="14.5" height="47.5" fill="black" />
+    <rect id="minuteMarker"    x="-3.25" y="-191" width="6.5"  height="15"   fill="black" />
+  </defs>
+
+  <g transform="translate(233, 233)">
+    <!-- The minutes and hours markers: -->
+    <g id="markers">
+      <g id="quarterMarkers">
+        <use xlink:href="#majorHourMarker" />
+        <use xlink:href="#minuteMarker"    transform="rotate(6)"/>
+        <use xlink:href="#minuteMarker"    transform="rotate(12)"/>
+        <use xlink:href="#minuteMarker"    transform="rotate(18)"/>
+        <use xlink:href="#minuteMarker"    transform="rotate(24)"/>
+        <use xlink:href="#minorHourMarker" transform="rotate(30)"/>
+        <use xlink:href="#minuteMarker"    transform="rotate(36)"/>
+        <use xlink:href="#minuteMarker"    transform="rotate(42)"/>
+        <use xlink:href="#minuteMarker"    transform="rotate(48)"/>
+        <use xlink:href="#minuteMarker"    transform="rotate(54)"/>
+        <use xlink:href="#minorHourMarker" transform="rotate(60)"/>
+        <use xlink:href="#minuteMarker"    transform="rotate(66)"/>
+        <use xlink:href="#minuteMarker"    transform="rotate(72)"/>
+        <use xlink:href="#minuteMarker"    transform="rotate(78)"/>
+        <use xlink:href="#minuteMarker"    transform="rotate(84)"/>
+      </g>
+      <use xlink:href="#quarterMarkers" transform="rotate(90)"/>
+      <use xlink:href="#quarterMarkers" transform="rotate(180)"/>
+      <use xlink:href="#quarterMarkers" transform="rotate(270)"/>
+    </g>
+  </g> <!-- Clock face. -->
+</svg>
