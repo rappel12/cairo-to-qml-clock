@@ -2,8 +2,7 @@
 
 ## Status (as of April 10, 2026)
 - Frameless transparent window
-- 30 themes organized in folder-based structure (see Theme Structure below)
-- Theme-aware hand colors with automatic color correction on startup
+- 30 themes organized in folder-based structure (see Theme Structure below)- Theme-aware hand colors with automatic color correction on startup
 - Smooth sweep second hand (16ms timer) — improved over original cairo-clock
 - Right-click menu: Properties, Info, Quit
 - Properties dialog with size presets (small/medium/large/extra large/custom)
@@ -35,9 +34,6 @@
 - picom (recommended for transparency on Fluxbox/Openbox)
 
 ## Installation
-
-No pre-built packages are currently distributed. Install from source:
-
 ```bash
 git clone https://github.com/rappel12/cairo-to-qml-clock.git
 cd cairo-to-qml-clock
