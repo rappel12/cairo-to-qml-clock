@@ -1,3 +1,4 @@
+273796cb62c75972f05264c6ead0d01e  usr/bin/cairo-qml-clock
 2bcb678e0ca1417b743b5fd0eba03907  usr/share/applications/cairo-qml-clock.desktop
 2ee59dc97725d79da4e6c1640a2eea71  usr/share/cairo-qml-clock/InfoDialog.qml
 578633c7ffdef8b01bc2b470fdac4df1  usr/share/cairo-qml-clock/PropertiesDialog.qml
@@ -318,7 +319,6 @@ aa0324ca44b21c06b3ed901a3d21d713  usr/share/cairo-qml-clock/themes/favorites/Bro
 b7eaf9505f3b310f9ad953667ffea718  usr/share/cairo-qml-clock/themes/favorites/Bronze/clock-second-hand.svg
 ecc16b612b8b1b0abbae3f18f9d270fa  usr/share/cairo-qml-clock/themes/favorites/Bronze/theme.conf
 81c376eeb326ba8615edd620c86ea7bc  usr/share/cairo-qml-clock/themes/favorites/Nautica_2.0/INSTALL
-0d04b9c3ab970dd1aed2ac85413980d3  usr/share/cairo-qml-clock/themes/favorites/Nautica_2.0/McCrae Sermons — NotebookLLM Findings.docx
 e67315003aca65f3a10373930ff2c815  usr/share/cairo-qml-clock/themes/favorites/Nautica_2.0/Readme
 08227bdb608fe175c1de9dedc8ef00a1  usr/share/cairo-qml-clock/themes/favorites/Nautica_2.0/clock-drop-shadow.svg
 08227bdb608fe175c1de9dedc8ef00a1  usr/share/cairo-qml-clock/themes/favorites/Nautica_2.0/clock-face-shadow.svg
@@ -420,18 +420,6 @@ e7f2d9c07bb3595acb1294580a49c029  usr/share/cairo-qml-clock/themes/favorites/Spi
 2918765b490ea08f16f966195ac71122  usr/share/cairo-qml-clock/themes/favorites/Spitfire/clock-second-hand-shadow.svg
 191e606a4b807c032003f8543127da00  usr/share/cairo-qml-clock/themes/favorites/Spitfire/clock-second-hand.svg
 525a295d41c473e67b89ba8fca336f6e  usr/share/cairo-qml-clock/themes/favorites/Spitfire/theme.conf
-85a9351cbdb575a12c8b8e42f2ed3218  usr/share/cairo-qml-clock/themes/favorites/Steampunky/clock-drop-shadow.svg
-c8bda34d4c68c830491e0a91f0c6768a  usr/share/cairo-qml-clock/themes/favorites/Steampunky/clock-face-shadow.svg
-1983dbde602fc6cdd1d50878612f9235  usr/share/cairo-qml-clock/themes/favorites/Steampunky/clock-face.svg
-f0cb9213aa3cdefdedc7a7e593acb73b  usr/share/cairo-qml-clock/themes/favorites/Steampunky/clock-frame.svg
-318e4dc990c99594e71aa8b5c7207b1f  usr/share/cairo-qml-clock/themes/favorites/Steampunky/clock-glass.svg
-e8df79f203104ef0d990ee7f0155ed7e  usr/share/cairo-qml-clock/themes/favorites/Steampunky/clock-hour-hand-shadow.svg
-957c6ed3d095baca8f9d2d727ab7ce95  usr/share/cairo-qml-clock/themes/favorites/Steampunky/clock-hour-hand.svg
-0c6048c6c9384f9302babad082f6845b  usr/share/cairo-qml-clock/themes/favorites/Steampunky/clock-marks.svg
-f9672157785b1d63ce7ffb54b06331da  usr/share/cairo-qml-clock/themes/favorites/Steampunky/clock-minute-hand-shadow.svg
-849963b97a62e43c0a5bf2ca4bfa377b  usr/share/cairo-qml-clock/themes/favorites/Steampunky/clock-minute-hand.svg
-03a079f1c4f6edcfedcfd4a7e8b8cb18  usr/share/cairo-qml-clock/themes/favorites/Steampunky/clock-second-hand-shadow.svg
-6ce033b0e7aa471183371b2cb312e08a  usr/share/cairo-qml-clock/themes/favorites/Steampunky/clock-second-hand.svg
 81c376eeb326ba8615edd620c86ea7bc  usr/share/cairo-qml-clock/themes/favorites/glassybest/INSTALL
 08227bdb608fe175c1de9dedc8ef00a1  usr/share/cairo-qml-clock/themes/favorites/glassybest/clock-drop-shadow.svg
 25d3f02b0eae43a2a7ad542bc0a81337  usr/share/cairo-qml-clock/themes/favorites/glassybest/clock-face-shadow.svg

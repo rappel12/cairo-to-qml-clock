@@ -2,7 +2,7 @@ Package: cairo-qml-clock
 Version: 0.1.0-1
 Architecture: all
 Maintainer: Rick Appel <rappel12@gmail.com>
-Installed-Size: 5459
+Installed-Size: 5375
 Depends: qml-qt6, wmctrl, xdotool
 Section: utils
 Priority: optional

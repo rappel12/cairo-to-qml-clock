@@ -11,3 +11,5 @@ override_dh_auto_install:
 	cp PropertiesDialog.qml debian/cairo-qml-clock/usr/share/cairo-qml-clock/
 	cp -r themes debian/cairo-qml-clock/usr/share/cairo-qml-clock/
 	cp cairo-qml-clock.desktop debian/cairo-qml-clock/usr/share/applications/
+	printf '#!/bin/bash\nQML=/usr/lib/qt6/bin/qml\nQML_XHR_ALLOW_FILE_READ=1 $$QML /usr/share/cairo-qml-clock/main.qml &\nsleep 1\nwmctrl -r "Cairo Clock" -b add,sticky\nxdotool search --name "Cairo Clock" set_desktop_for_window 0xffffffff\nwait\n' > debian/cairo-qml-clock/usr/bin/cairo-qml-clock
+	chmod 755 debian/cairo-qml-clock/usr/bin/cairo-qml-clock
