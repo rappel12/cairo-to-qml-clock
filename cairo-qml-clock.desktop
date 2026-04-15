@@ -6,4 +6,7 @@ Icon=clock
 Type=Application
 Categories=Utility;Clock;
 StartupNotify=false
+X-KDE-PluginInfo-Author=Rick Appel
+X-KDE-PluginInfo-Email=rappel12@gmail.com
+X-KDE-PluginInfo-License=GPL-2.0
 Terminal=false
