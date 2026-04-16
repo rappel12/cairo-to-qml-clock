@@ -1,0 +1,17 @@
+Cairo QML Clock
+===============
+
+Project Creator & Maintainer:
+  Rick Appel <rappel12@gmail.com>
+  https://github.com/rappel12
+
+Development:
+  This project was developed with AI assistance from Claude (Anthropic).
+  Claude generated essentially all QML and packaging code based on
+  Rick Appel's direction, testing, and quality evaluation.
+  Rick Appel serves as project manager, tester, and maintainer.
+  Questions and issues should be directed to the GitHub repository.
+
+Original cairo-clock 0.3.4:
+  MacSlow (Mirco Müller)
+  https://launchpad.net/cairo-clock
