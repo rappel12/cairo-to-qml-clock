@@ -18,6 +18,7 @@
   <categories>
     <category>Utility</category>
   </categories>
+  <icon type="stock">cairo-qml-clock</icon>
   <launchable type="desktop-id">cairo-qml-clock.desktop</launchable>
   <releases>
     <release version="0.1.0" date="2026-04-15"/>

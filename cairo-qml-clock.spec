@@ -46,6 +46,8 @@ SCRIPT
 chmod +x %{buildroot}/usr/bin/cairo-qml-clock
 sed -i 's|#!/usr/bin/bash|#!/bin/bash|' %{buildroot}/usr/bin/cairo-qml-clock
 
+mkdir -p %{buildroot}/usr/share/icons/hicolor/128x128/apps
+cp cairo-qml-clock.png %{buildroot}/usr/share/icons/hicolor/128x128/apps/
 mkdir -p %{buildroot}/usr/share/metainfo
 cp cairo-qml-clock.metainfo.xml %{buildroot}/usr/share/metainfo/
 cat > %{buildroot}/usr/share/applications/cairo-qml-clock.desktop << 'DESKTOP'
@@ -64,6 +66,7 @@ DESKTOP
 /usr/bin/cairo-qml-clock
 /usr/share/applications/cairo-qml-clock.desktop
 /usr/share/metainfo/cairo-qml-clock.metainfo.xml
+/usr/share/icons/hicolor/128x128/apps/cairo-qml-clock.png
 
 %post
 sed -i 's|#!/usr/bin/bash|#!/bin/bash|' /usr/bin/cairo-qml-clock

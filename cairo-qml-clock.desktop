@@ -2,7 +2,7 @@
 Name=Cairo QML Clock
 Comment=A cairo-clock replacement built with Qt6 QML
 Exec=cairo-qml-clock
-Icon=clock
+Icon=cairo-qml-clock
 Type=Application
 Categories=Utility;Clock;
 StartupNotify=false
