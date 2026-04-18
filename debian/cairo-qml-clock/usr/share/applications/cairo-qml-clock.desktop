@@ -2,8 +2,11 @@
 Name=Cairo QML Clock
 Comment=A cairo-clock replacement built with Qt6 QML
 Exec=cairo-qml-clock
-Icon=clock
+Icon=cairo-qml-clock
 Type=Application
 Categories=Utility;Clock;
 StartupNotify=false
+X-KDE-PluginInfo-Author=Rick Appel
+X-KDE-PluginInfo-Email=rappel12@gmail.com
+X-KDE-PluginInfo-License=GPL-2.0
 Terminal=false

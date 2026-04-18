@@ -1,5 +1,5 @@
 273796cb62c75972f05264c6ead0d01e  usr/bin/cairo-qml-clock
-2bcb678e0ca1417b743b5fd0eba03907  usr/share/applications/cairo-qml-clock.desktop
+74f80e7b530a560eafc0a2f897c7f5c4  usr/share/applications/cairo-qml-clock.desktop
 2ee59dc97725d79da4e6c1640a2eea71  usr/share/cairo-qml-clock/InfoDialog.qml
 578633c7ffdef8b01bc2b470fdac4df1  usr/share/cairo-qml-clock/PropertiesDialog.qml
 714d9542dfb7019ee50b11f5834e30ad  usr/share/cairo-qml-clock/main.qml
@@ -463,6 +463,7 @@ e940938d438bcb32a9d1d908bc3204f4  usr/share/cairo-qml-clock/themes/favorites/str
 435d615d88b4bccf7122eb44b12a3d5e  usr/share/cairo-qml-clock/themes/favorites/street-clock/clock-second-hand.svg
 716511fb03043940d2cbacbf6173a8d0  usr/share/cairo-qml-clock/themes/favorites/street-clock/theme.conf
 81c376eeb326ba8615edd620c86ea7bc  usr/share/cairo-qml-clock/themes/favorites/wood/INSTALL
+788ec11a6d0eae2f0f3f1f51f7f9d806  usr/share/cairo-qml-clock/themes/favorites/wood/cairo-qml-clock.png
 ebd3a78837bbf19c77a04d4e33aa2934  usr/share/cairo-qml-clock/themes/favorites/wood/clock-drop-shadow.svg
 8942eca0b3953d8552e1f9f556a7e778  usr/share/cairo-qml-clock/themes/favorites/wood/clock-face-shadow.svg
 d5d95561fcc9163641117c304eec7ef6  usr/share/cairo-qml-clock/themes/favorites/wood/clock-face.svg
@@ -478,3 +479,5 @@ fb1e65a73c15b687cd8c8e0d80bda874  usr/share/cairo-qml-clock/themes/favorites/woo
 a49f2d5f2dade780742ad2ef6e6827e5  usr/share/cairo-qml-clock/themes/favorites/wood/theme.conf
 0f01c9f7d9dcb5df565b4b841dcbd106  usr/share/doc/cairo-qml-clock/changelog.Debian.gz
 f371fa60af537df9e252465d56a9fbb4  usr/share/doc/cairo-qml-clock/copyright
+788ec11a6d0eae2f0f3f1f51f7f9d806  usr/share/icons/hicolor/128x128/apps/cairo-qml-clock.png
+ad3cfb9a9ad829d400c7575be2932da1  usr/share/metainfo/cairo-qml-clock.metainfo.xml
