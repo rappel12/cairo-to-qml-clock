@@ -1,3 +1,5 @@
 *.rpm
 *.deb
 *.bak
+*.zip
+debian/cairo-qml-clock/
