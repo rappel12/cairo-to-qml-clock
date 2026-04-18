@@ -26,4 +26,10 @@
   <developer id="rappel12">
     <name>Rick Appel</name>
   </developer>
+  <screenshots>
+    <screenshot type="default">
+      <image>https://raw.githubusercontent.com/rappel12/cairo-to-qml-clock/main/ClockSamples.png</image>
+      <caption>Three clock themes on a twilight desktop</caption>
+    </screenshot>
+  </screenshots>
 </component>
