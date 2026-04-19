@@ -7,7 +7,7 @@ License:        GPLv2
 URL:            https://github.com/rappel12/cairo-to-qml-clock
 Source0:        %{name}-%{version}.tar.gz
 
-Requires:       qt6-qtdeclarative-devel
+Requires:       qtdeclarative6
 Requires:       wmctrl
 Requires:       xdotool
 
@@ -38,18 +38,14 @@ cat > %{buildroot}/usr/bin/cairo-qml-clock << 'SCRIPT'
 QML=/usr/lib64/qt6/bin/qml
 QML_XHR_ALLOW_FILE_READ=1 $QML /usr/share/cairo-qml-clock/main.qml &
 
-sleep 1
+sleep 2
 wmctrl -r "Cairo Clock" -b add,sticky
 xdotool search --name "Cairo Clock" set_desktop_for_window 0xffffffff
-wait
+disown
 SCRIPT
 chmod +x %{buildroot}/usr/bin/cairo-qml-clock
 sed -i 's|#!/usr/bin/bash|#!/bin/bash|' %{buildroot}/usr/bin/cairo-qml-clock
 
-mkdir -p %{buildroot}/usr/share/icons/hicolor/128x128/apps
-cp cairo-qml-clock.png %{buildroot}/usr/share/icons/hicolor/128x128/apps/
-mkdir -p %{buildroot}/usr/share/metainfo
-cp cairo-qml-clock.metainfo.xml %{buildroot}/usr/share/metainfo/
 cat > %{buildroot}/usr/share/applications/cairo-qml-clock.desktop << 'DESKTOP'
 [Desktop Entry]
 Name=Cairo QML Clock
@@ -65,8 +61,6 @@ DESKTOP
 /usr/share/cairo-qml-clock/
 /usr/bin/cairo-qml-clock
 /usr/share/applications/cairo-qml-clock.desktop
-/usr/share/metainfo/cairo-qml-clock.metainfo.xml
-/usr/share/icons/hicolor/128x128/apps/cairo-qml-clock.png
 
 %post
 sed -i 's|#!/usr/bin/bash|#!/bin/bash|' /usr/bin/cairo-qml-clock
