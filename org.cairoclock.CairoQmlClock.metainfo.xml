@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop-application">
+  <id>org.cairoclock.CairoQmlClock</id>
+  <name>Cairo QML Clock</name>
+  <summary>A cairo-clock replacement built with Qt6 QML</summary>
+  <description>
+    <p>A modern reimplementation of MacSlow's cairo-clock using Qt6 QML.
+    Runs on modern Linux systems without deprecated dependencies.
+    Features smooth sweep second hand, multiple themes, and sticky workspace support.</p>
+  </description>
+  <url type="homepage">https://github.com/rappel12/cairo-to-qml-clock</url>
+  <project_license>GPL-2.0-only</project_license>
+  <metadata_license>CC0-1.0</metadata_license>
+  <releases>
+    <release version="0.1.0" date="2026-04-20"/>
+  </releases>
+  <content_rating type="oars-1.1"/>
+</component>

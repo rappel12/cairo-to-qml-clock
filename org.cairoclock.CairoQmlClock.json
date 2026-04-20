@@ -21,8 +21,9 @@
                 "install -Dm644 InfoDialog.qml /app/share/cairo-qml-clock/InfoDialog.qml",
                 "install -Dm644 PropertiesDialog.qml /app/share/cairo-qml-clock/PropertiesDialog.qml",
                 "cp -r themes /app/share/cairo-qml-clock/",
-                "install -Dm644 cairo-qml-clock.desktop /app/share/applications/org.cairoclock.CairoQmlClock.desktop",
-                "install -Dm644 cairo-qml-clock.png /app/share/icons/hicolor/256x256/apps/org.cairoclock.CairoQmlClock.png"
+                "install -Dm644 org.cairoclock.CairoQmlClock.desktop /app/share/applications/org.cairoclock.CairoQmlClock.desktop",
+                "install -Dm644 cairo-qml-clock.png /app/share/icons/hicolor/256x256/apps/org.cairoclock.CairoQmlClock.png",
+                "install -Dm644 org.cairoclock.CairoQmlClock.metainfo.xml /app/share/metainfo/org.cairoclock.CairoQmlClock.metainfo.xml"
             ],
             "sources": [
                 {
