@@ -51,6 +51,12 @@ The `.deb` package automatically installs all dependencies. The RPM package
 is compatible with Fedora, PCLinuxOS, and other RPM-based distros. The `fc43`
 label in the filename is cosmetic only and does not affect compatibility.
 
+**Flatpak (all distros)**
+```
+flatpak install cairo-qml-clock.flatpak
+flatpak run org.cairoclock.CairoQmlClock
+```
+
 ### Build from Source
 git clone https://github.com/rappel12/cairo-to-qml-clock.git
 cd cairo-to-qml-clock
@@ -71,6 +77,7 @@ Qt6 qml path varies by distro:
 - `wmctrl` — sticky workspace support
 - `xdotool` — sticky workspace support
 - `picom` — recommended for transparency on Fluxbox/Openbox
+- Flatpak requires `org.kde.Platform//6.8` runtime (installed automatically from Flathub)
 
 ## Fluxbox/Openbox Notes
 
