@@ -7,7 +7,7 @@ License:        GPLv2
 URL:            https://github.com/rappel12/cairo-to-qml-clock
 Source0:        %{name}-%{version}.tar.gz
 
-Requires:       qtdeclarative6
+Requires:       qt6-qtdeclarative
 Requires:       wmctrl
 Requires:       xdotool
 
