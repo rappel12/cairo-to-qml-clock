@@ -66,5 +66,9 @@ DESKTOP
 sed -i 's|#!/usr/bin/bash|#!/bin/bash|' /usr/bin/cairo-qml-clock
 
 %changelog
-* Mon Mar 24 2026 Rick Appel <> - 0.1.0-1
+* Thu May 15 2026 Rick Appel <rappel12@gmail.com> - 0.1.0-1
+- Fix: Properties and Info dialogs now movable on KDE Plasma 6 Wayland
+- Fix: Right-click context menu dismisses on click-outside on X11 and Wayland
+
+* Tue Mar 24 2026 Rick Appel <rappel12@gmail.com> - 0.1.0-1
 - Initial release

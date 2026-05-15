@@ -1,5 +1,10 @@
 cairo-qml-clock (0.1.0-1) stable; urgency=low
 
   * Initial release
+  * Fix: Properties and Info dialogs now movable on KDE Plasma 6 Wayland
+    (changed window flag from Qt.Dialog to Qt.Window)
+  * Fix: Right-click context menu now dismisses on click-outside on both
+    X11 and Wayland (replaced native Qt Menu popup with custom QML
+    implementation using a transparent overlay MouseArea)
 
- -- Rick Appel <rappel12@gmail.com>  Sat, 12 Apr 2026 12:00:00 +0000
+ -- Rick Appel <rappel12@gmail.com>  Thu, 15 May 2026 12:00:00 +0000
