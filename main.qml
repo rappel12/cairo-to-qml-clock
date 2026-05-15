@@ -63,6 +63,7 @@ Window {
     }
 }
     Component.onCompleted: getHandColor(root.themePath)
+    onActiveChanged: if (!active) contextMenu.visible = false
 
    
     property int hours: 0
@@ -83,28 +84,54 @@ Window {
         }
     }
 
-   MouseArea {
-    anchors.fill: parent
-    acceptedButtons: Qt.LeftButton | Qt.RightButton
-    onPressed: function(mouse) {
-        if (contextMenu.visible) {
-            contextMenu.close()
-            if (mouse.button !== Qt.RightButton) return
-        }
-        if (mouse.button === Qt.RightButton) {
-            contextMenu.popup()
-        } else {
-            root.startSystemMove()
+    MouseArea {
+        anchors.fill: parent
+        acceptedButtons: Qt.LeftButton | Qt.RightButton
+        onPressed: function(mouse) {
+            if (mouse.button === Qt.RightButton)
+                contextMenu.show(mouseX, mouseY)
+            else
+                root.startSystemMove()
         }
     }
-}
 
-    Menu {
+    // Transparent full-window overlay — catches clicks outside the menu
+    MouseArea {
+        anchors.fill: parent
+        visible: contextMenu.visible
+        z: 10
+        acceptedButtons: Qt.LeftButton | Qt.RightButton
+        onPressed: function(mouse) {
+            contextMenu.visible = false
+            if (mouse.button === Qt.RightButton)
+                contextMenu.show(mouseX, mouseY)
+        }
+    }
+
+    Rectangle {
         id: contextMenu
-        MenuItem { text: "Properties"; onTriggered: propWindow.show() }
-        MenuItem { text: "Info"; onTriggered: infoWindow.show() }
-        MenuSeparator {}
-        MenuItem { text: "Quit"; onTriggered: Qt.quit() }
+        visible: false
+        z: 11
+        width: 160
+        height: menuCol.implicitHeight + 8
+        color: palette.window
+        border.color: palette.mid
+        border.width: 1
+
+        function show(px, py) {
+            x = Math.min(px, root.width - width)
+            y = Math.min(py, root.height - height)
+            visible = true
+        }
+
+        Column {
+            id: menuCol
+            anchors { left: parent.left; right: parent.right; top: parent.top; margins: 4 }
+            ItemDelegate { width: parent.width; text: "Properties"; onClicked: { contextMenu.visible = false; propWindow.show() } }
+            ItemDelegate { width: parent.width; text: "Info";       onClicked: { contextMenu.visible = false; infoWindow.show() } }
+            Rectangle    { width: parent.width; height: 1; color: palette.mid; opacity: 0.5 }
+            ItemDelegate { width: parent.width; text: "Quit";       onClicked: Qt.quit() }
+        }
     }
 
     Item {
