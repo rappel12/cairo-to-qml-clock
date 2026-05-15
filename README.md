@@ -11,7 +11,7 @@ Developed by Rick Appel with AI assistance as a learning project. GPL v2 license
 - 30 themes organized in folder-based structure (favorites/bundled/custom)
 - Theme-aware hand colors with automatic color correction on startup
 - Smooth sweep second hand (16ms timer) — improved over original cairo-clock
-- Right-click menu: Properties, Info, Quit
+- Right-click menu: Properties, Info, Quit (dismisses on click-outside on both X11 and Wayland)
 - Properties dialog with size presets (small/medium/large/extra large/custom)
 - Custom size entry via editable spinboxes
 - Folder selector for theme browsing (favorites/bundled/custom)
@@ -23,6 +23,7 @@ Developed by Rick Appel with AI assistance as a learning project. GPL v2 license
 - Sticks to every workspace (X11 only)
 - Position/size/theme/settings memory
 - Draggable on both X11 and Wayland
+- Properties and Info dialogs movable on Wayland
 - Auto-detects Wayland vs X11 session at runtime
 - Hides from taskbar on X11
 
@@ -102,5 +103,6 @@ Each theme folder contains 12 SVG files plus a `theme.conf` file.
   SVG face layers.
 - Keep on top and sticky workspace require X11 — not available on Wayland.
 - Taskbar hiding works on X11 only.
+- Context menu uses a custom QML implementation rather than a native menu widget, required for reliable dismiss behavior on Wayland.
 - Ubuntu 24.04 ships Qt 6.4 which lacks the QtCore Settings module —
   upgrade to Ubuntu 24.10 or later is recommended.
