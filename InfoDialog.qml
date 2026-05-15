@@ -10,7 +10,7 @@ Window {
     height: 250
     minimumWidth: 300
     minimumHeight: 250
-    flags: Qt.Dialog
+    flags: Qt.Window
     modality: Qt.NonModal
 
     ColumnLayout {

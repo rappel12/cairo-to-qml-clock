@@ -87,6 +87,10 @@ Window {
     anchors.fill: parent
     acceptedButtons: Qt.LeftButton | Qt.RightButton
     onPressed: function(mouse) {
+        if (contextMenu.visible) {
+            contextMenu.close()
+            if (mouse.button !== Qt.RightButton) return
+        }
         if (mouse.button === Qt.RightButton) {
             contextMenu.popup()
         } else {
