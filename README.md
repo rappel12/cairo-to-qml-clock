@@ -57,6 +57,8 @@ label in the filename is cosmetic only and does not affect compatibility.
 flatpak install cairo-qml-clock.flatpak
 flatpak run org.cairoclock.CairoQmlClock
 ```
+The Flatpak is fully self-contained — no Qt6 or other dependencies needed on the host system.
+The KDE Platform runtime (installed automatically) provides everything required.
 
 ### Build from Source
 git clone https://github.com/rappel12/cairo-to-qml-clock.git
@@ -102,6 +104,7 @@ Each theme folder contains 12 SVG files plus a `theme.conf` file.
   SVG hand rotation unreliable. Current solution: Canvas-drawn hands over
   SVG face layers.
 - Keep on top and sticky workspace require X11 — not available on Wayland.
+- Sticky workspace is non-functional in the Flatpak on all platforms (X11 and Wayland) — the sandbox cannot access the host wmctrl/xdotool tools.
 - Taskbar hiding works on X11 only.
 - Context menu uses a custom QML implementation rather than a native menu widget, required for reliable dismiss behavior on Wayland.
 - Ubuntu 24.04 ships Qt 6.4 which lacks the QtCore Settings module —
