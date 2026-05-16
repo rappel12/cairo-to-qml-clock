@@ -11,7 +11,7 @@ Window {
     height: 600
     minimumWidth: 320
     minimumHeight: 400
-    flags: Qt.Dialog
+    flags: Qt.Window
     modality: Qt.NonModal
 
     // Properties passed in from main.qml
