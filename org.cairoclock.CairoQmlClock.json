@@ -1,14 +1,15 @@
 {
     "app-id": "org.cairoclock.CairoQmlClock",
     "runtime": "org.kde.Platform",
-    "runtime-version": "6.8",
+    "runtime-version": "6.9",
     "sdk": "org.kde.Sdk",
     "command": "cairo-qml-clock",
     "finish-args": [
         "--share=ipc",
         "--socket=fallback-x11",
         "--socket=wayland",
-        "--device=dri"
+        "--device=dri",
+        "--filesystem=xdg-config/gtk-3.0:ro"
     ],
     "modules": [
         {
