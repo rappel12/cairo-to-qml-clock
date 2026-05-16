@@ -18,8 +18,10 @@
             "config-opts": ["-DCMAKE_BUILD_TYPE=Release"],
             "sources": [
                 {
-                    "type": "dir",
-                    "path": "."
+                    "type": "git",
+                    "url": "https://github.com/rappel12/cairo-to-qml-clock.git",
+                    "tag": "v0.1.1",
+                    "commit": "55da8b8904448b018dc272cc3b4ddd51a7cc316c"
                 }
             ],
             "post-install": [
