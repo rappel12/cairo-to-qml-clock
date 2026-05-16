@@ -17,10 +17,10 @@ Developed by Rick Appel with AI assistance as a learning project. GPL v2 license
 - Folder selector for theme browsing (favorites/bundled/custom)
 - Show seconds toggle
 - Show date toggle (European format DD/MM)
-- Keep on top toggle (X11 only)
+- Keep on top toggle
 - 24-hour mode for -24 themes
 - Animation smoothness slider (3 levels)
-- Sticks to every workspace (X11 only)
+- Sticks to every workspace (X11 and Wayland sessions with XWayland)
 - Position/size/theme/settings memory
 - Draggable on both X11 and Wayland
 - Properties and Info dialogs movable on Wayland
@@ -31,8 +31,8 @@ Developed by Rick Appel with AI assistance as a learning project. GPL v2 license
 
 - Runs on modern Linux (Qt6, no deprecated libglade2 dependency)
 - Smoother second hand sweep
-- Reliable keep-on-top behavior (X11)
-- Wayland compatible with smooth dragging
+- Reliable keep-on-top behavior
+- Wayland compatible with smooth dragging and all-workspace sticking (requires XWayland)
 
 ## Installation
 
@@ -77,10 +77,8 @@ Qt6 qml path varies by distro:
 ## Dependencies
 
 - `qml-qt6` — Qt6 QML runtime
-- `wmctrl` — sticky workspace support
-- `xdotool` — sticky workspace support
 - `picom` — recommended for transparency on Fluxbox/Openbox
-- Flatpak requires `org.kde.Platform//6.8` runtime (installed automatically from Flathub)
+- Flatpak requires `org.kde.Platform//6.9` runtime (installed automatically from Flathub)
 
 ## Fluxbox/Openbox Notes
 
@@ -103,9 +101,21 @@ Each theme folder contains 12 SVG files plus a `theme.conf` file.
 - SVG hand files have embedded PNGs with offset pivot points making native
   SVG hand rotation unreliable. Current solution: Canvas-drawn hands over
   SVG face layers.
-- Keep on top and sticky workspace require X11 — not available on Wayland.
-- Sticky workspace is non-functional in the Flatpak on all platforms (X11 and Wayland) — the sandbox cannot access the host wmctrl/xdotool tools.
 - Taskbar hiding works on X11 only.
 - Context menu uses a custom QML implementation rather than a native menu widget, required for reliable dismiss behavior on Wayland.
 - Ubuntu 24.04 ships Qt 6.4 which lacks the QtCore Settings module —
   upgrade to Ubuntu 24.10 or later is recommended.
+
+## Wayland Notes
+
+The clock works on Wayland sessions. All-workspace sticking requires XWayland
+to be present (both `WAYLAND_DISPLAY` and `DISPLAY` set), which is the case on
+all major desktops — GNOME, Cinnamon, KDE, XFCE — when XWayland is enabled.
+
+On **pure Wayland** sessions with XWayland explicitly disabled, the clock runs
+normally but is confined to the workspace it was launched on. This is a Wayland
+compositor limitation: there is no standard Wayland protocol for pinning a
+window to all workspaces.
+
+On **KDE Plasma Wayland**, the clock uses the native Wayland path (no XWayland
+required) and workspace behavior is managed by KWin.
