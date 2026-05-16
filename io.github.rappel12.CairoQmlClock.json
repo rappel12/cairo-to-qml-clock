@@ -21,7 +21,7 @@
                     "type": "git",
                     "url": "https://github.com/rappel12/cairo-to-qml-clock.git",
                     "tag": "v0.1.2",
-                    "commit": "PLACEHOLDER"
+                    "commit": "e046bad7c014dc67f1b7b58a70fc20aebb49e264"
                 }
             ],
             "post-install": [
