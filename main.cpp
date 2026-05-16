@@ -11,7 +11,10 @@ int main(int argc, char *argv[])
     const QByteArray desktop = qgetenv("XDG_CURRENT_DESKTOP").toLower();
     if (!desktop.contains("kde") && !desktop.contains("plasma")) {
         qputenv("QT_QPA_PLATFORMTHEME", "gtk3");
-        qputenv("QT_STYLE_OVERRIDE",    "adwaita");
+        qputenv("QT_STYLE_OVERRIDE",    "Fusion");
+        // On Wayland with XWayland available, use XCB so Qt.Tool appears on all workspaces
+        if (!qgetenv("WAYLAND_DISPLAY").isEmpty() && !qgetenv("DISPLAY").isEmpty())
+            qputenv("QT_QPA_PLATFORM", "xcb");
     }
 
     QGuiApplication app(argc, argv);

@@ -23,8 +23,15 @@ Window {
     property bool use24h: false
 	property bool stickWorkspace: true
     property bool isWayland: Qt.platform.pluginName === "wayland"
-    flags: stayOnTop ? Qt.FramelessWindowHint | Qt.WindowStaysOnTopHint | (isWayland ? Qt.Window : Qt.Tool)
-                     : Qt.FramelessWindowHint | (isWayland ? Qt.Window : Qt.Tool)
+    // BypassWindowManagerHint = override_redirect: WM-unmanaged, appears on all workspaces.
+    // Wayland (KDE) keeps normal WM window; everything else uses bypass.
+    flags: isWayland
+        ? (stayOnTop ? Qt.FramelessWindowHint | Qt.WindowStaysOnTopHint | Qt.Window
+                     : Qt.FramelessWindowHint | Qt.Window)
+        : Qt.FramelessWindowHint | Qt.BypassWindowManagerHint
+
+    property point _dragPressScreen
+    property point _dragWindowOrigin
    Settings {
         id: settings    
         property alias x: root.x
@@ -90,8 +97,20 @@ Window {
         onPressed: function(mouse) {
             if (mouse.button === Qt.RightButton)
                 contextMenu.show(mouseX, mouseY)
-            else
+            else if (root.isWayland)
                 root.startSystemMove()
+            else {
+                var g = mapToGlobal(mouse.x, mouse.y)
+                root._dragPressScreen = Qt.point(g.x, g.y)
+                root._dragWindowOrigin = Qt.point(root.x, root.y)
+            }
+        }
+        onPositionChanged: function(mouse) {
+            if ((mouse.buttons & Qt.LeftButton) && !root.isWayland) {
+                var g = mapToGlobal(mouse.x, mouse.y)
+                root.x = root._dragWindowOrigin.x + (g.x - root._dragPressScreen.x)
+                root.y = root._dragWindowOrigin.y + (g.y - root._dragPressScreen.y)
+            }
         }
     }
 
