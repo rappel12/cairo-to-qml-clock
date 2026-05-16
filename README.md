@@ -55,7 +55,7 @@ label in the filename is cosmetic only and does not affect compatibility.
 **Flatpak (all distros)**
 ```
 flatpak install cairo-qml-clock.flatpak
-flatpak run org.cairoclock.CairoQmlClock
+flatpak run io.github.rappel12.CairoQmlClock
 ```
 The Flatpak is fully self-contained — no Qt6 or other dependencies needed on the host system.
 The KDE Platform runtime (installed automatically) provides everything required.
