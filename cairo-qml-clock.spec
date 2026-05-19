@@ -1,5 +1,5 @@
 Name:           cairo-qml-clock
-Version:        0.1.0
+Version:        0.2.0
 Release:        1%{?dist}
 Summary:        A cairo-clock replacement built with Qt6 QML
 
@@ -66,6 +66,11 @@ DESKTOP
 sed -i 's|#!/usr/bin/bash|#!/bin/bash|' /usr/bin/cairo-qml-clock
 
 %changelog
+* Sun May 18 2026 Rick Appel <rappel12@gmail.com> - 0.2.0-1
+- Wayland fixes: context menu dismiss, dialog sizing, all-workspace visibility
+- GTK appearance improvements for non-KDE desktops
+- Updated app ID to io.github.rappel12.CairoQmlClock
+
 * Thu May 15 2026 Rick Appel <rappel12@gmail.com> - 0.1.0-1
 - Fix: Properties and Info dialogs now movable on KDE Plasma 6 Wayland
 - Fix: Right-click context menu dismisses on click-outside on X11 and Wayland

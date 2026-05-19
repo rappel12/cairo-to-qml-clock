@@ -1,3 +1,11 @@
+cairo-qml-clock (0.2.0-1) stable; urgency=low
+
+  * Wayland fixes: context menu dismiss, dialog sizing, all-workspace visibility
+  * GTK appearance improvements for non-KDE desktops
+  * Updated app ID to io.github.rappel12.CairoQmlClock
+
+ -- Rick Appel <rappel12@gmail.com>  Sun, 18 May 2026 00:00:00 +0000
+
 cairo-qml-clock (0.1.0-1) stable; urgency=low
 
   * Initial release
