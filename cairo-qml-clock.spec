@@ -31,6 +31,7 @@ mkdir -p %{buildroot}/usr/share/pixmaps
 cp main.qml %{buildroot}/usr/share/cairo-qml-clock/
 cp InfoDialog.qml %{buildroot}/usr/share/cairo-qml-clock/
 cp PropertiesDialog.qml %{buildroot}/usr/share/cairo-qml-clock/
+cp ThemeImage.qml %{buildroot}/usr/share/cairo-qml-clock/
 cp -r themes %{buildroot}/usr/share/cairo-qml-clock/
 
 cat > %{buildroot}/usr/bin/cairo-qml-clock << 'SCRIPT'
