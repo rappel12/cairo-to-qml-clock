@@ -20,14 +20,14 @@
                 {
                     "type": "git",
                     "url": "https://github.com/rappel12/cairo-to-qml-clock.git",
-                    "tag": "v0.2.0",
-                    "commit": "3afd052700f48ce379ddc065208c9e48b0b3d30c"
+                    "commit": "eb00836147582d8581dd53a676f598f7ea4119f8"
                 }
             ],
             "post-install": [
                 "install -Dm644 main.qml /app/share/cairo-qml-clock/main.qml",
                 "install -Dm644 InfoDialog.qml /app/share/cairo-qml-clock/InfoDialog.qml",
                 "install -Dm644 PropertiesDialog.qml /app/share/cairo-qml-clock/PropertiesDialog.qml",
+                "install -Dm644 ThemeImage.qml /app/share/cairo-qml-clock/ThemeImage.qml",
                 "cp -r themes /app/share/cairo-qml-clock/",
                 "install -Dm644 io.github.rappel12.CairoQmlClock.desktop /app/share/applications/io.github.rappel12.CairoQmlClock.desktop",
                 "install -Dm644 cairo-qml-clock.png /app/share/icons/hicolor/256x256/apps/io.github.rappel12.CairoQmlClock.png",
