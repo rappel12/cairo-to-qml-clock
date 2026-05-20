@@ -14,6 +14,7 @@ Window {
 	
 	property string appDir: Qt.resolvedUrl(".").toString().replace("file://", "")
     property string themePath: appDir + "themes/favorites/Anticko/"
+    property string fallbackTheme: appDir + "themes/bundled/radium/"
     property color handColor: "#3a2a1a"
     property color secondColor: "#8b0000"
     property bool stayOnTop: true
@@ -160,11 +161,11 @@ Window {
     Item {
         anchors.fill: parent
 
-        Image { anchors.fill: parent; source: themePath + "clock-drop-shadow.svg"; smooth: true; sourceSize: Qt.size(root.width, root.height) }
-        Image { anchors.fill: parent; source: themePath + "clock-face.svg"; smooth: true; sourceSize: Qt.size(root.width, root.height) }
-        Image { anchors.fill: parent; source: themePath + "clock-face-shadow.svg"; smooth: true; sourceSize: Qt.size(root.width, root.height) }
-        Image { anchors.fill: parent; source: themePath + "clock-marks.svg"; smooth: true; sourceSize: Qt.size(root.width, root.height) }
-        Image { anchors.fill: parent; source: themePath + "clock-frame.svg"; smooth: true; sourceSize: Qt.size(root.width, root.height) }
+        ThemeImage { filename: "clock-drop-shadow.svg" }
+        ThemeImage { filename: "clock-face.svg" }
+        ThemeImage { filename: "clock-face-shadow.svg" }
+        ThemeImage { filename: "clock-marks.svg" }
+        ThemeImage { filename: "clock-frame.svg" }
 
         Canvas {
             id: canvas
@@ -223,8 +224,9 @@ Window {
             }
         }
 
-        Image { anchors.fill: parent; source: themePath + "clock-glass.svg"; smooth: true; sourceSize: Qt.size(root.width, root.height) }
+        ThemeImage { filename: "clock-glass.svg" }
     }
+
 PropertiesDialog {
         id: propWindow
         clockRoot: root
