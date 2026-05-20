@@ -39,14 +39,14 @@ Developed by Rick Appel with AI assistance as a learning project. GPL v2 license
 ### Easy Install (Recommended)
 
 Download the latest packages from the
-[v0.1.1 release](https://github.com/rappel12/cairo-to-qml-clock/releases/tag/v0.1.1).
+[v0.2.0 release](https://github.com/rappel12/cairo-to-qml-clock/releases/tag/v0.2.0).
 
 **Debian/MX Linux/Ubuntu**
-sudo dpkg -i cairo-qml-clock_0.1.0-1_all.deb
+sudo dpkg -i cairo-qml-clock_0.2.0-1_all.deb
 sudo apt-get install -f
 
 **Fedora/PCLinuxOS**
-sudo rpm -i cairo-qml-clock-0.1.0-1.noarch.rpm
+sudo rpm -i v0.2.0 release
 
 The `.deb` package automatically installs all dependencies. The RPM package
 is compatible with Fedora, PCLinuxOS, and other RPM-based distros. The `fc43`
@@ -65,7 +65,7 @@ git clone https://github.com/rappel12/cairo-to-qml-clock.git
 cd cairo-to-qml-clock
 sudo apt install devscripts debhelper
 dpkg-buildpackage -us -uc -b
-sudo dpkg -i ../cairo-qml-clock_0.1.0-1_all.deb
+sudo dpkg -i ../cairo-qml-clock_0.2.0-1_all.deb
 
 ### Manual Run (without installing)
 QML_XHR_ALLOW_FILE_READ=1 /usr/lib/qt6/bin/qml main.qml
@@ -105,6 +105,7 @@ Each theme folder contains 12 SVG files plus a `theme.conf` file.
 - Context menu uses a custom QML implementation rather than a native menu widget, required for reliable dismiss behavior on Wayland.
 - Ubuntu 24.04 ships Qt 6.4 which lacks the QtCore Settings module —
   upgrade to Ubuntu 24.10 or later is recommended.
+- Properties dialog text may appear gray on GTK-based desktops (Cinnamon, XFCE, etc.) due to Qt6/GTK theme    integration. Switching to the Adwaita GTK theme resolves this.
 
 ## Wayland Notes
 
