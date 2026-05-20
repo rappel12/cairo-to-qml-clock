@@ -17,16 +17,6 @@ Window {
     // Properties passed in from main.qml
     property var clockRoot: null
 
-    onVisibleChanged: {
-        if (visible && clockRoot) {
-            var w = clockRoot.width
-            if (w <= 150) sizePreset.currentIndex = 0
-            else if (w <= 250) sizePreset.currentIndex = 1
-            else if (w <= 350) sizePreset.currentIndex = 2
-            else if (w <= 450) sizePreset.currentIndex = 3
-            else sizePreset.currentIndex = 4
-        }
-    }
 
     ScrollView {
         anchors.fill: parent
@@ -156,7 +146,8 @@ Window {
                 text: "Sticks to every workspace (always on)"
                 Layout.columnSpan: 2
                 Layout.fillWidth: true
-                color: "gray"
+                color: palette.windowText
+                opacity: 0.6
                 wrapMode: Text.WordWrap
             }
 
@@ -193,22 +184,26 @@ Window {
                             var fullPath = clockRoot.appDir + "themes/" + selectedFolder + "/" + selectedTheme + "/"
                             clockRoot.themePath = fullPath
                             var xhr = new XMLHttpRequest()
-                            xhr.open("GET", "file://" + fullPath + "theme.conf", false)
-                            xhr.send()
-                            var handColor = "#000000"
-                            var secondColor = "#ff0000"
-                            if (xhr.status === 0 || xhr.status === 200) {
-                                var lines = xhr.responseText.split("\n")
-                                for (var i = 0; i < lines.length; i++) {
-                                    var line = lines[i].trim()
-                                    if (line.indexOf("hand-color=") >= 0)
-                                        handColor = line.split("=")[1].trim()
-                                    if (line.indexOf("second-color=") >= 0)
-                                        secondColor = line.split("=")[1].trim()
+                            xhr.open("GET", "file://" + fullPath + "theme.conf", true)
+                            xhr.onreadystatechange = function() {
+                                if (xhr.readyState === XMLHttpRequest.DONE) {
+                                    var handColor = "#000000"
+                                    var secondColor = "#ff0000"
+                                    if (xhr.status === 0 || xhr.status === 200) {
+                                        var lines = xhr.responseText.split("\n")
+                                        for (var i = 0; i < lines.length; i++) {
+                                            var line = lines[i].trim()
+                                            if (line.indexOf("hand-color=") >= 0)
+                                                handColor = line.split("=")[1].trim()
+                                                if (line.indexOf("second-color=") >= 0)
+                                                    secondColor = line.split("=")[1].trim()
+                                        }
+                                    }
+                                    clockRoot.handColor = handColor
+                                    clockRoot.secondColor = secondColor
                                 }
                             }
-                            clockRoot.handColor = handColor
-                            clockRoot.secondColor = secondColor
+                            xhr.send()
                         }
                         clockRoot.stayOnTop = keepOnTop.checked
                         clockRoot.smoothness = smoothSlider.value
