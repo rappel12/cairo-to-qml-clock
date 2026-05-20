@@ -98,7 +98,22 @@ Window {
                 }
                 onVisibleChanged: {
                     if (visible && clockRoot) {
-                        syncTimer.start()
+                        var path = clockRoot.themePath
+                        var folders = ["favorites", "bundled", "custom"]
+                        var detectedIdx = 0
+                        for (var i = 0; i < folders.length; i++) {
+                            if (path.indexOf("/themes/" + folders[i] + "/") >= 0) {
+                                detectedIdx = i
+                                break
+                            }
+                        }
+                        if (folderBox.currentIndex !== detectedIdx) {
+                            folderBox.currentIndex = detectedIdx
+                            themeListModel.folder = "file://" + clockRoot.appDir + "themes/" + folders[detectedIdx]
+                            // syncTimer fires via themeListModel.onStatusChanged when model reloads
+                        } else {
+                            syncTimer.start()
+                        }
                     }
                 }
             }
@@ -161,7 +176,7 @@ Window {
                 id: smoothSlider
                 Layout.columnSpan: 2
                 Layout.fillWidth: true
-                from: 1; to: 3; value: 3
+                from: 1; to: 3; value: clockRoot ? clockRoot.smoothness : 3
                 stepSize: 1
             }
 
@@ -193,10 +208,10 @@ Window {
                                         var lines = xhr.responseText.split("\n")
                                         for (var i = 0; i < lines.length; i++) {
                                             var line = lines[i].trim()
-                                            if (line.indexOf("hand-color=") >= 0)
+                                            if (line.startsWith("hand-color="))
                                                 handColor = line.split("=")[1].trim()
-                                                if (line.indexOf("second-color=") >= 0)
-                                                    secondColor = line.split("=")[1].trim()
+                                            if (line.startsWith("second-color="))
+                                                secondColor = line.split("=")[1].trim()
                                         }
                                     }
                                     clockRoot.handColor = handColor
