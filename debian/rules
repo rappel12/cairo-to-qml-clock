@@ -9,6 +9,7 @@ override_dh_auto_install:
 	cp main.qml debian/cairo-qml-clock/usr/share/cairo-qml-clock/
 	cp InfoDialog.qml debian/cairo-qml-clock/usr/share/cairo-qml-clock/
 	cp PropertiesDialog.qml debian/cairo-qml-clock/usr/share/cairo-qml-clock/
+	cp ThemeImage.qml debian/cairo-qml-clock/usr/share/cairo-qml-clock/
 	cp -r themes debian/cairo-qml-clock/usr/share/cairo-qml-clock/
 	cp cairo-qml-clock.desktop debian/cairo-qml-clock/usr/share/applications/
 	mkdir -p debian/cairo-qml-clock/usr/share/icons/hicolor/128x128/apps

@@ -29,7 +29,7 @@ Window {
         }
 
         Label {
-            text: "Version 0.1.0"
+            text: "Version 0.2.0"
             Layout.alignment: Qt.AlignHCenter
         }
 
