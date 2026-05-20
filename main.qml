@@ -49,26 +49,30 @@ Window {
         property alias stickWorkspace: root.stickWorkspace      
     }
 
-   function getHandColor(path) {
-    var xhr = new XMLHttpRequest()
-    xhr.open("GET", "file://" + path + "theme.conf", false)
-    xhr.send()
-    if (xhr.status === 0 || xhr.status === 200) {
-        var lines = xhr.responseText.split("\n")
-        for (var i = 0; i < lines.length; i++) {
-            var line = lines[i].trim()
-            if (line.startsWith("hand-color=")) {
-                root.handColor = line.split("=")[1].trim()
-            }
-            if (line.startsWith("second-color=")) {
-                root.secondColor = line.split("=")[1].trim()
+    function getHandColor(path) {
+        var xhr = new XMLHttpRequest()
+        xhr.open("GET", "file://" + path + "theme.conf", true)
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState === XMLHttpRequest.DONE) {
+                if (xhr.status === 0 || xhr.status === 200) {
+                    var lines = xhr.responseText.split("\n")
+                    for (var i = 0; i < lines.length; i++) {
+                        var line = lines[i].trim()
+                        if (line.startsWith("hand-color=")) {
+                            root.handColor = line.split("=")[1].trim()
+                        }
+                        if (line.startsWith("second-color=")) {
+                            root.secondColor = line.split("=")[1].trim()
+                        }
+                    }
+                } else {
+                    root.handColor = "#000000"
+                    root.secondColor = "#ff0000"
+                }
             }
         }
-    } else {
-        root.handColor = "#000000"
-        root.secondColor = "#ff0000"
+        xhr.send()
     }
-}
     Component.onCompleted: getHandColor(root.themePath)
     onActiveChanged: if (!active) contextMenu.visible = false
 
