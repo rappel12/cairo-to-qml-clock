@@ -157,11 +157,10 @@ Window {
             CheckBox { id: keepOnTop; text: "Keep on top"; checked: clockRoot ? clockRoot.stayOnTop : true; Layout.columnSpan: 2 }
             CheckBox { id: use24hBox; text: "Use 24h mode"; checked: clockRoot ? clockRoot.use24h : false; Layout.columnSpan: 2 }
 
-            Text {
+            Label {
                 text: "Sticks to every workspace (always on)"
                 Layout.columnSpan: 2
                 Layout.fillWidth: true
-                color: palette.windowText
                 opacity: 0.6
                 wrapMode: Text.WordWrap
             }
