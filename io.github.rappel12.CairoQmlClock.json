@@ -16,6 +16,8 @@
             "name": "cairo-qml-clock",
             "buildsystem": "simple",
             "build-commands": [
+                "mkdir -p /app/bin",
+                "cp /usr/bin/qml /app/bin/qml",
                 "install -Dm755 cairo-qml-clock.sh /app/bin/cairo-qml-clock",
                 "install -Dm644 main.qml /app/share/cairo-qml-clock/main.qml",
                 "install -Dm644 InfoDialog.qml /app/share/cairo-qml-clock/InfoDialog.qml",
