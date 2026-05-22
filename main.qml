@@ -33,6 +33,7 @@ Window {
 
     property point _dragPressScreen
     property point _dragWindowOrigin
+    property bool _wmDrag: false
    Settings {
         id: settings    
         property alias x: root.x
@@ -102,16 +103,17 @@ Window {
         onPressed: function(mouse) {
             if (mouse.button === Qt.RightButton)
                 contextMenu.show(mouseX, mouseY)
-            else if (root.isWayland)
-                root.startSystemMove()
             else {
-                var g = mapToGlobal(mouse.x, mouse.y)
-                root._dragPressScreen = Qt.point(g.x, g.y)
-                root._dragWindowOrigin = Qt.point(root.x, root.y)
+                _wmDrag = root.isWayland && root.startSystemMove()
+                if (!_wmDrag) {
+                    var g = mapToGlobal(mouse.x, mouse.y)
+                    root._dragPressScreen = Qt.point(g.x, g.y)
+                    root._dragWindowOrigin = Qt.point(root.x, root.y)
+                }
             }
         }
         onPositionChanged: function(mouse) {
-            if ((mouse.buttons & Qt.LeftButton) && !root.isWayland) {
+            if ((mouse.buttons & Qt.LeftButton) && !_wmDrag) {
                 var g = mapToGlobal(mouse.x, mouse.y)
                 root.x = root._dragWindowOrigin.x + (g.x - root._dragPressScreen.x)
                 root.y = root._dragWindowOrigin.y + (g.y - root._dragPressScreen.y)
