@@ -31,6 +31,10 @@
       <caption>Three clock themes running on a Linux desktop</caption>
       <image type="source" width="1591" height="698">https://raw.githubusercontent.com/rappel12/cairo-to-qml-clock/main/ClockSamples.png</image>
     </screenshot>
+    <screenshot>
+      <caption>Properties dialog showing theme, size, and display options</caption>
+      <image type="source" width="748" height="538">https://raw.githubusercontent.com/rappel12/cairo-to-qml-clock/main/screenshot-properties.png</image>
+    </screenshot>
   </screenshots>
   <releases>
     <release version="0.2.1" date="2026-05-22">
