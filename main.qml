@@ -22,7 +22,6 @@ Window {
     property bool showSeconds: true
     property bool showDate: false
     property bool use24h: false
-	property bool stickWorkspace: true
     property bool isWayland: Qt.platform.pluginName === "wayland"
     // BypassWindowManagerHint = override_redirect: WM-unmanaged, appears on all workspaces.
     // Wayland (KDE) keeps normal WM window; everything else uses bypass.
@@ -48,7 +47,6 @@ Window {
         property alias showSeconds: root.showSeconds
         property alias showDate: root.showDate
         property alias use24h: root.use24h
-        property alias stickWorkspace: root.stickWorkspace      
     }
 
     function getHandColor(path) {
