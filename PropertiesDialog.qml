@@ -64,10 +64,10 @@ Window {
                 onVisibleChanged: {
                     if (visible && clockRoot) {
                         var w = clockRoot.width
-                        if (w <= 150) sizePreset.currentIndex = 0
-                        else if (w <= 250) sizePreset.currentIndex = 1
-                        else if (w <= 350) sizePreset.currentIndex = 2
-                        else if (w <= 450) sizePreset.currentIndex = 3
+                        if (w === 150) sizePreset.currentIndex = 0
+                        else if (w === 250) sizePreset.currentIndex = 1
+                        else if (w === 350) sizePreset.currentIndex = 2
+                        else if (w === 450) sizePreset.currentIndex = 3
                         else sizePreset.currentIndex = 4
                     }
                 }
