@@ -5,3 +5,4 @@ repo/
 build-dir/
 cairo-qml-clock.flatpak
 config.h
+build-local/
