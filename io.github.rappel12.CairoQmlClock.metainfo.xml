@@ -10,7 +10,7 @@
     <ul>
       <li>30 themes organized in favorites, bundled, and custom folders</li>
       <li>Smooth sweep second hand (60 fps)</li>
-      <li>Frameless transparent window with drag support on X11 and Wayland</li>
+      <li>Frameless transparent window with drag support on X11</li>
       <li>Right-click menu with Properties, Info, and Quit</li>
       <li>Size presets and custom size via spinboxes</li>
       <li>Show seconds, show date (European DD/MM format), 24-hour mode</li>
@@ -33,7 +33,27 @@
     </screenshot>
   </screenshots>
   <releases>
+    <release version="0.2.1" date="2026-05-22">
+      <description>
+        <ul>
+          <li>Flatpak now builds a compiled C++ launcher instead of copying the qml interpreter from the SDK</li>
+          <li>QML install path configured at build time via configure_file, supporting both Flatpak and native installs</li>
+          <li>Size preset dropdown now correctly shows Custom for non-preset clock sizes</li>
+          <li>Sticky workspace note in Properties dialog fixed for GTK desktops (replaced Text with Label)</li>
+          <li>Removed vestigial stickWorkspace property that was never acted on</li>
+        </ul>
+      </description>
+    </release>
     <release version="0.2.0" date="2026-05-18">
+      <description>
+        <ul>
+          <li>Added ThemeImage component for graceful fallback when theme images fail to load</li>
+          <li>Converted hand color loading to asynchronous XHR</li>
+          <li>Fixed Properties dialog scrolling and minimum height</li>
+          <li>Fixed theme folder and theme dropdown synchronization</li>
+          <li>Updated to Flatpak runtime org.kde.Platform 6.9</li>
+        </ul>
+      </description>
     </release>
     <release version="0.1.2" date="2026-05-16">
       <description>
@@ -56,5 +76,9 @@
     </release>
     <release version="0.1.0" date="2026-04-20"/>
   </releases>
+  <categories>
+    <category>Utility</category>
+    <category>Clock</category>
+  </categories>
   <content_rating type="oars-1.1"/>
 </component>
