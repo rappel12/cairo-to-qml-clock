@@ -4,5 +4,4 @@ debian/cairo-qml-clock/
 repo/
 build-dir/
 cairo-qml-clock.flatpak
-repo/
-build-dir/
+config.h
