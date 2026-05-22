@@ -1,6 +1,7 @@
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
 #include <QUrl>
+#include "config.h"
 
 int main(int argc, char *argv[])
 {
@@ -23,7 +24,7 @@ int main(int argc, char *argv[])
     app.setOrganizationName("QtProject");
 
     QQmlApplicationEngine engine;
-    engine.load(QUrl(QStringLiteral("file:///app/share/cairo-qml-clock/main.qml")));
+    engine.load(QUrl(QStringLiteral("file://" QML_MAIN_PATH)));
     if (engine.rootObjects().isEmpty())
         return -1;
 

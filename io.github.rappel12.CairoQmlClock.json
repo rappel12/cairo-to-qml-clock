@@ -14,11 +14,11 @@
     "modules": [
         {
             "name": "cairo-qml-clock",
-            "buildsystem": "simple",
-            "build-commands": [
-                "mkdir -p /app/bin",
-                "cp /usr/bin/qml /app/bin/qml",
-                "install -Dm755 cairo-qml-clock.sh /app/bin/cairo-qml-clock",
+            "buildsystem": "cmake-ninja",
+            "config-opts": [
+                "-DCMAKE_INSTALL_PREFIX=/app"
+            ],
+            "post-install": [
                 "install -Dm644 main.qml /app/share/cairo-qml-clock/main.qml",
                 "install -Dm644 InfoDialog.qml /app/share/cairo-qml-clock/InfoDialog.qml",
                 "install -Dm644 PropertiesDialog.qml /app/share/cairo-qml-clock/PropertiesDialog.qml",
