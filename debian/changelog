@@ -1,3 +1,13 @@
+cairo-qml-clock (0.2.4-1) stable; urgency=low
+
+  * Set correct Wayland xdg_toplevel app ID and _KDE_NET_WM_DESKTOP_FILE
+    for panel icon matching on both Wayland and X11
+  * Migrate legacy settings from QtProject/Qml Runtime.conf to
+    io.github.rappel12/CairoQmlClock.conf on first launch
+  * Remove StartupWMClass from .desktop; panel matching now uses app ID
+
+ -- Rick Appel <rappel12@gmail.com>  Fri, 23 May 2026 00:00:00 +0000
+
 cairo-qml-clock (0.2.0-1) stable; urgency=low
 
   * Wayland fixes: context menu dismiss, dialog sizing, all-workspace visibility

@@ -37,6 +37,15 @@
     </screenshot>
   </screenshots>
   <releases>
+    <release version="0.2.4" date="2026-05-23">
+      <description>
+        <ul>
+          <li>Set correct Wayland xdg_toplevel app ID and _KDE_NET_WM_DESKTOP_FILE for panel icon matching</li>
+          <li>Migrate legacy settings from QtProject/Qml Runtime.conf to io.github.rappel12/CairoQmlClock.conf on first launch</li>
+          <li>Remove StartupWMClass workaround from .desktop file; panel matching now uses the proper app ID</li>
+        </ul>
+      </description>
+    </release>
     <release version="0.2.1" date="2026-05-22">
       <description>
         <ul>
