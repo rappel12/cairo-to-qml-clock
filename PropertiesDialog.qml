@@ -18,7 +18,7 @@ Window {
     property var clockRoot: null
 
     function syncPreset() {
-        var w = clockRoot.width
+        var w = Math.round(clockRoot.width)
         if      (w === 150) sizePreset.currentIndex = 0
         else if (w === 250) sizePreset.currentIndex = 1
         else if (w === 350) sizePreset.currentIndex = 2
