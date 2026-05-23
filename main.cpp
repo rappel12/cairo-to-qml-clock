@@ -1,5 +1,8 @@
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
+#include <QDir>
+#include <QFile>
+#include <QStandardPaths>
 #include <QUrl>
 #include "config.h"
 
@@ -20,9 +23,22 @@ int main(int argc, char *argv[])
 
     QGuiApplication app(argc, argv);
     app.setApplicationVersion(APP_VERSION);
-    // Keep these matching the old qml runner so existing settings files are preserved
-    app.setApplicationName("Qml Runtime");
-    app.setOrganizationName("QtProject");
+
+    // One-time migration: copy legacy "Qml Runtime" settings to the new location.
+    // Uses QStandardPaths so the paths are correct under both Flatpak
+    // (XDG_CONFIG_HOME → ~/.var/app/.../config/) and native installs (~/.config/).
+    const QString configBase = QStandardPaths::writableLocation(QStandardPaths::GenericConfigLocation);
+    const QString oldConf = configBase + "/QtProject/Qml Runtime.conf";
+    const QString newDir  = configBase + "/io.github.rappel12";
+    const QString newConf = newDir + "/CairoQmlClock.conf";
+    if (QFile::exists(oldConf) && !QFile::exists(newConf)) {
+        QDir().mkpath(newDir);
+        QFile::copy(oldConf, newConf);
+    }
+
+    app.setApplicationName("CairoQmlClock");
+    app.setOrganizationName("io.github.rappel12");
+    app.setDesktopFileName("io.github.rappel12.CairoQmlClock");
 
     QQmlApplicationEngine engine;
     engine.load(QUrl(QStringLiteral("file://" QML_MAIN_PATH)));

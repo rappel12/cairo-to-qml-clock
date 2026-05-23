@@ -6,5 +6,4 @@ Icon=io.github.rappel12.CairoQmlClock
 Type=Application
 Categories=Utility;Clock;
 StartupNotify=false
-StartupWMClass=Qml Runtime
 Terminal=false
