@@ -17,6 +17,14 @@ Window {
     // Properties passed in from main.qml
     property var clockRoot: null
 
+    function syncPreset() {
+        var w = clockRoot.width
+        if      (w === 150) sizePreset.currentIndex = 0
+        else if (w === 250) sizePreset.currentIndex = 1
+        else if (w === 350) sizePreset.currentIndex = 2
+        else if (w === 450) sizePreset.currentIndex = 3
+        else                sizePreset.currentIndex = 4
+    }
 
     ScrollView {
         anchors.fill: parent
@@ -62,24 +70,14 @@ Window {
                     else if (currentIndex === 3) { widthBox.value = 450; heightBox.value = 450 }
                 }
                 onVisibleChanged: {
-                    if (visible && clockRoot)
-                        presetSyncTimer.restart()
+                    if (visible) syncPreset()
                 }
             }
 
-            Timer {
-                id: presetSyncTimer
-                interval: 50
-                repeat: false
-                onTriggered: {
-                    if (clockRoot) {
-                        var w = clockRoot.width
-                        if (w === 150) sizePreset.currentIndex = 0
-                        else if (w === 250) sizePreset.currentIndex = 1
-                        else if (w === 350) sizePreset.currentIndex = 2
-                        else if (w === 450) sizePreset.currentIndex = 3
-                        else sizePreset.currentIndex = 4
-                    }
+            Connections {
+                target: clockRoot
+                function onWidthChanged() {
+                    if (propDialog.visible) syncPreset()
                 }
             }
 
