@@ -233,5 +233,6 @@ PropertiesDialog {
     }
  InfoDialog {
         id: infoWindow
+        appVersion: Qt.application.version
     }
 }

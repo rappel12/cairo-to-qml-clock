@@ -6,6 +6,7 @@ import QtQuick.Layouts
 Window {
     id: infoDialog
     title: "About Cairo QML Clock"
+    property string appVersion: ""
     width: 300
     height: col.implicitHeight + 70
     minimumWidth: 300
@@ -29,7 +30,7 @@ Window {
         }
 
         Label {
-            text: "Version 0.2.0"
+            text: "Version " + appVersion
             Layout.alignment: Qt.AlignHCenter
         }
 

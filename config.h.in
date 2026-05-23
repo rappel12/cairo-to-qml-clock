@@ -1,2 +1,3 @@
 #pragma once
 #define QML_MAIN_PATH "@QML_INSTALL_DIR@/main.qml"
+#define APP_VERSION   "@PROJECT_VERSION@"

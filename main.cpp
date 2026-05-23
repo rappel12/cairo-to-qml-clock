@@ -19,6 +19,7 @@ int main(int argc, char *argv[])
     }
 
     QGuiApplication app(argc, argv);
+    app.setApplicationVersion(APP_VERSION);
     // Keep these matching the old qml runner so existing settings files are preserved
     app.setApplicationName("Qml Runtime");
     app.setOrganizationName("QtProject");
