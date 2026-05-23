@@ -2,13 +2,16 @@ Source: cairo-qml-clock
 Section: utils
 Priority: optional
 Maintainer: Rick Appel <rappel12@gmail.com>
-Build-Depends: debhelper-compat (= 13)
+Build-Depends: debhelper-compat (= 13),
+               cmake,
+               qt6-base-dev,
+               qt6-declarative-dev
 Standards-Version: 4.6.0
 Homepage: https://github.com/rappel12/cairo-to-qml-clock
 
 Package: cairo-qml-clock
-Architecture: all
-Depends: qml-qt6, wmctrl, xdotool
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: A cairo-clock replacement built with Qt6 QML
  A modern reimplementation of MacSlow's cairo-clock using Qt6 QML.
  Runs on modern Linux systems without deprecated dependencies.
