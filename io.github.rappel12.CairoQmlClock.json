@@ -32,8 +32,7 @@
                 {
                     "type": "git",
                     "url": "https://github.com/rappel12/cairo-to-qml-clock.git",
-                    "tag": "v0.2.2",
-                    "commit": "1ed1706d54a0218bc1cba94195a8d1d8e5c5a948"
+                    "tag": "v0.2.2"
                 }
             ]
         }
