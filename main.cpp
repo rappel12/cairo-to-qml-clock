@@ -13,9 +13,10 @@ int main(int argc, char *argv[])
     // On non-KDE desktops use the GTK3 platform theme (reads system fonts/colors)
     // and Adwaita widget style — both are bundled in the KDE Platform runtime.
     const QByteArray desktop = qgetenv("XDG_CURRENT_DESKTOP").toLower();
+    qputenv("QT_STYLE_OVERRIDE",    "Fusion");
     if (!desktop.contains("kde") && !desktop.contains("plasma")) {
         qputenv("QT_QPA_PLATFORMTHEME", "gtk3");
-        qputenv("QT_STYLE_OVERRIDE",    "Fusion");
+
         // On Wayland with XWayland available, use XCB so Qt.Tool appears on all workspaces
         if (!qgetenv("WAYLAND_DISPLAY").isEmpty() && !qgetenv("DISPLAY").isEmpty())
             qputenv("QT_QPA_PLATFORM", "xcb");
