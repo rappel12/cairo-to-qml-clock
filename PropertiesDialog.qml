@@ -23,7 +23,6 @@ Window {
 
     function syncPreset() {
         var w = Math.round(clockRoot.width)
-        console.log("syncPreset: clockRoot.width =", w)
         if      (w === 150) sizePreset.currentIndex = 0
         else if (w === 250) sizePreset.currentIndex = 1
         else if (w === 350) sizePreset.currentIndex = 2
