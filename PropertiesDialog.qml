@@ -17,8 +17,13 @@ Window {
     // Properties passed in from main.qml
     property var clockRoot: null
 
+    onVisibleChanged: {
+        if (visible && clockRoot) syncPreset()
+    }
+
     function syncPreset() {
         var w = Math.round(clockRoot.width)
+        console.log("syncPreset: clockRoot.width =", w)
         if      (w === 150) sizePreset.currentIndex = 0
         else if (w === 250) sizePreset.currentIndex = 1
         else if (w === 350) sizePreset.currentIndex = 2
@@ -68,9 +73,6 @@ Window {
                     else if (currentIndex === 1) { widthBox.value = 250; heightBox.value = 250 }
                     else if (currentIndex === 2) { widthBox.value = 350; heightBox.value = 350 }
                     else if (currentIndex === 3) { widthBox.value = 450; heightBox.value = 450 }
-                }
-                onVisibleChanged: {
-                    if (visible) syncPreset()
                 }
             }
 
