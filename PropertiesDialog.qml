@@ -15,7 +15,7 @@ Window {
     modality: Qt.NonModal
 
     // Properties passed in from main.qml
-    property var clockRoot: null
+    property QtObject clockRoot: null
 
     readonly property int presetIndex: {
         if (!clockRoot) return 4
