@@ -20,6 +20,7 @@ Window {
     readonly property int presetIndex: {
         if (!clockRoot) return 4
         var w = Math.round(clockRoot.width)
+        console.log("presetIndex eval: clockRoot.width =", w)
         if      (w === 150) return 0
         else if (w === 250) return 1
         else if (w === 350) return 2
