@@ -17,17 +17,14 @@ Window {
     // Properties passed in from main.qml
     property var clockRoot: null
 
-    onVisibleChanged: {
-        if (visible && clockRoot) syncPreset()
-    }
-
-    function syncPreset() {
+    readonly property int presetIndex: {
+        if (!clockRoot) return 4
         var w = Math.round(clockRoot.width)
-        if      (w === 150) sizePreset.currentIndex = 0
-        else if (w === 250) sizePreset.currentIndex = 1
-        else if (w === 350) sizePreset.currentIndex = 2
-        else if (w === 450) sizePreset.currentIndex = 3
-        else                sizePreset.currentIndex = 4
+        if      (w === 150) return 0
+        else if (w === 250) return 1
+        else if (w === 350) return 2
+        else if (w === 450) return 3
+        else                return 4
     }
 
     ScrollView {
@@ -67,18 +64,12 @@ Window {
                 id: sizePreset
                 Layout.fillWidth: true
                 model: ["small (150x150)", "medium (250x250)", "large (350x350)", "extra large (450x450)", "custom"]
+                currentIndex: propDialog.presetIndex
                 onActivated: {
                     if (currentIndex === 0) { widthBox.value = 150; heightBox.value = 150 }
                     else if (currentIndex === 1) { widthBox.value = 250; heightBox.value = 250 }
                     else if (currentIndex === 2) { widthBox.value = 350; heightBox.value = 350 }
                     else if (currentIndex === 3) { widthBox.value = 450; heightBox.value = 450 }
-                }
-            }
-
-            Connections {
-                target: clockRoot
-                function onWidthChanged() {
-                    if (propDialog.visible) syncPreset()
                 }
             }
 
