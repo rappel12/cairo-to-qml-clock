@@ -9,18 +9,12 @@
 int main(int argc, char *argv[])
 {
     qputenv("QML_XHR_ALLOW_FILE_READ", "1");
-    qputenv("QT_QUICK_CONTROLS_STYLE", "Fusion");
-    // On non-KDE desktops use the GTK3 platform theme (reads system fonts/colors)
-    // and Adwaita widget style — both are bundled in the KDE Platform runtime.
-    const QByteArray desktop = qgetenv("XDG_CURRENT_DESKTOP").toLower();
-    qputenv("QT_STYLE_OVERRIDE",    "Fusion");
-    if (!desktop.contains("kde") && !desktop.contains("plasma")) {
-        qputenv("QT_QPA_PLATFORMTHEME", "gtk3");
+    qputenv("QT_STYLE_OVERRIDE",          "Fusion");
+    qputenv("QT_QUICK_CONTROLS_STYLE",    "Fusion");
 
-        // On Wayland with XWayland available, use XCB so Qt.Tool appears on all workspaces
-        if (!qgetenv("WAYLAND_DISPLAY").isEmpty() && !qgetenv("DISPLAY").isEmpty())
-            qputenv("QT_QPA_PLATFORM", "xcb");
-    }
+    // On Wayland with XWayland available, use XCB so Qt.Tool appears on all workspaces
+    if (!qgetenv("WAYLAND_DISPLAY").isEmpty() && !qgetenv("DISPLAY").isEmpty())
+        qputenv("QT_QPA_PLATFORM", "xcb");
 
     QGuiApplication app(argc, argv);
     app.setApplicationVersion(APP_VERSION);
@@ -45,6 +39,5 @@ int main(int argc, char *argv[])
     engine.load(QUrl(QStringLiteral("file://" QML_MAIN_PATH)));
     if (engine.rootObjects().isEmpty())
         return -1;
-
     return app.exec();
 }

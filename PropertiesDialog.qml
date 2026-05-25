@@ -30,10 +30,12 @@ Window {
 
     ScrollView {
         anchors.fill: parent
+        contentHeight: contentItem.childrenRect.height
         contentWidth: availableWidth
         clip: true
 
         GridLayout {
+            id: mainLayout
             width: parent.width
             anchors.margins: 8
             columns: 2
