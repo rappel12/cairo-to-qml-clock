@@ -1,5 +1,5 @@
 Name:           cairo-qml-clock
-Version:        0.2.4
+Version:        0.2.7
 Release:        1%{?dist}
 Summary:        A cairo-clock replacement built with Qt6 QML
 License:        GPLv2
@@ -32,6 +32,12 @@ DESTDIR=%{buildroot} cmake --install build
 /usr/share/cairo-qml-clock/
 
 %changelog
+* Sun May 25 2026 Rick Appel <rappel12@gmail.com> - 0.2.7-1
+- Add QT_QUICK_CONTROLS_STYLE=Fusion for Flatpak ComboBox fix
+- Remove gtk3 platform theme override — Fusion style on all desktops
+- Document Keep on Top as Wayland known limitation
+- Bump version to 0.2.7
+
 * Sun May 24 2026 Rick Appel <rappel12@gmail.com> - 0.2.4-1
 - Force Fusion style on all desktops — fixes ComboBox preset display under Breeze
 - Reduce Properties dialog height
