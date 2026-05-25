@@ -1,3 +1,13 @@
+cairo-qml-clock (0.2.7-1) stable; urgency=low
+
+  * Force Fusion style on all desktops — fixes ComboBox preset display
+  * Add QT_QUICK_CONTROLS_STYLE=Fusion for Flatpak environments
+  * Reduce Properties dialog height to 490
+  * Document Keep on Top as Wayland known limitation
+  * Bump version to 0.2.7
+
+ -- Rick Appel <rappel12@gmail.com>  Sun, 25 May 2026 00:00:00 +0000
+
 cairo-qml-clock (0.2.4-1) stable; urgency=low
 
   * Set correct Wayland xdg_toplevel app ID and _KDE_NET_WM_DESKTOP_FILE
