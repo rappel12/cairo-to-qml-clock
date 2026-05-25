@@ -9,7 +9,7 @@
 int main(int argc, char *argv[])
 {
     qputenv("QML_XHR_ALLOW_FILE_READ", "1");
-
+    qputenv("QT_QUICK_CONTROLS_STYLE", "Fusion");
     // On non-KDE desktops use the GTK3 platform theme (reads system fonts/colors)
     // and Adwaita widget style — both are bundled in the KDE Platform runtime.
     const QByteArray desktop = qgetenv("XDG_CURRENT_DESKTOP").toLower();
