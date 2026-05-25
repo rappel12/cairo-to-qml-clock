@@ -25,10 +25,12 @@ Window {
     property bool isWayland: Qt.platform.pluginName === "wayland"
     // BypassWindowManagerHint = override_redirect: WM-unmanaged, appears on all workspaces.
     // Wayland (KDE) keeps normal WM window; everything else uses bypass.
+
     flags: isWayland
-        ? (stayOnTop ? Qt.FramelessWindowHint | Qt.WindowStaysOnTopHint | Qt.Window
-                     : Qt.FramelessWindowHint | Qt.Window)
-        : Qt.FramelessWindowHint | Qt.BypassWindowManagerHint
+    ? (stayOnTop ? Qt.FramelessWindowHint | Qt.WindowStaysOnTopHint | Qt.Window
+    : Qt.FramelessWindowHint | Qt.Window)
+    : Qt.FramelessWindowHint | Qt.BypassWindowManagerHint
+
 
     property point _dragPressScreen
     property point _dragWindowOrigin
