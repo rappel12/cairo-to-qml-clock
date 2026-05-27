@@ -20,7 +20,6 @@ Window {
     readonly property int presetIndex: {
         if (!clockRoot) return 4
         var w = Math.round(clockRoot.width)
-        console.log("presetIndex eval: clockRoot.width =", w)
         if      (w === 150) return 0
         else if (w === 250) return 1
         else if (w === 350) return 2
@@ -159,14 +158,6 @@ Window {
             CheckBox { id: showDate; text: "Show date"; checked: clockRoot ? clockRoot.showDate : false; Layout.columnSpan: 2 }
             CheckBox { id: keepOnTop; text: "Keep on top"; checked: clockRoot ? clockRoot.stayOnTop : true; Layout.columnSpan: 2 }
             CheckBox { id: use24hBox; text: "Use 24h mode"; checked: clockRoot ? clockRoot.use24h : false; Layout.columnSpan: 2 }
-
-            Label {
-                text: "Sticks to every workspace (always on)"
-                Layout.columnSpan: 2
-                Layout.fillWidth: true
-                opacity: 0.6
-                wrapMode: Text.WordWrap
-            }
 
             // --- Animation Smoothness ---
             Label { text: "Animation Smoothness"; font.bold: true; Layout.columnSpan: 2 }

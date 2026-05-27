@@ -7,7 +7,7 @@ Window {
     id: root
     width: 300
     height: 300
-    visible: true
+    visible: false
     color: "transparent"
     title: "Cairo Clock"
 
@@ -22,19 +22,20 @@ Window {
     property bool showSeconds: true
     property bool showDate: false
     property bool use24h: false
-    property bool isWayland: Qt.platform.pluginName === "wayland"
-    // BypassWindowManagerHint = override_redirect: WM-unmanaged, appears on all workspaces.
-    // Wayland (KDE) keeps normal WM window; everything else uses bypass.
+    property bool _initialized: false
 
-    flags: isWayland
-    ? (stayOnTop ? Qt.FramelessWindowHint | Qt.WindowStaysOnTopHint | Qt.Window
-    : Qt.FramelessWindowHint | Qt.Window)
-    : Qt.FramelessWindowHint | Qt.BypassWindowManagerHint
-
+    onStayOnTopChanged: {
+        if (_initialized) {
+            flags = stayOnTop
+                ? Qt.FramelessWindowHint | Qt.WindowStaysOnTopHint | Qt.Window
+                : Qt.FramelessWindowHint | Qt.Window
+            hide()
+            show()
+        }
+    }
 
     property point _dragPressScreen
     property point _dragWindowOrigin
-    property bool _wmDrag: false
    Settings {
         id: settings    
         property alias x: root.x
@@ -75,7 +76,14 @@ Window {
         }
         xhr.send()
     }
-    Component.onCompleted: getHandColor(root.themePath)
+    Component.onCompleted: {
+        getHandColor(root.themePath)
+        _initialized = true
+        flags = stayOnTop
+            ? Qt.FramelessWindowHint | Qt.WindowStaysOnTopHint | Qt.Window
+            : Qt.FramelessWindowHint | Qt.Window
+        visible = true
+    }
     onActiveChanged: if (!active) contextMenu.visible = false
 
    
@@ -104,16 +112,13 @@ Window {
             if (mouse.button === Qt.RightButton)
                 contextMenu.show(mouseX, mouseY)
             else {
-                _wmDrag = root.isWayland && root.startSystemMove()
-                if (!_wmDrag) {
-                    var g = mapToGlobal(mouse.x, mouse.y)
-                    root._dragPressScreen = Qt.point(g.x, g.y)
-                    root._dragWindowOrigin = Qt.point(root.x, root.y)
-                }
+                var g = mapToGlobal(mouse.x, mouse.y)
+                root._dragPressScreen = Qt.point(g.x, g.y)
+                root._dragWindowOrigin = Qt.point(root.x, root.y)
             }
         }
         onPositionChanged: function(mouse) {
-            if ((mouse.buttons & Qt.LeftButton) && !_wmDrag) {
+            if (mouse.buttons & Qt.LeftButton) {
                 var g = mapToGlobal(mouse.x, mouse.y)
                 root.x = root._dragWindowOrigin.x + (g.x - root._dragPressScreen.x)
                 root.y = root._dragWindowOrigin.y + (g.y - root._dragPressScreen.y)

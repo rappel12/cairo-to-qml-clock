@@ -11,8 +11,10 @@ int main(int argc, char *argv[])
     qputenv("QML_XHR_ALLOW_FILE_READ", "1");
     qputenv("QT_STYLE_OVERRIDE",          "Fusion");
     qputenv("QT_QUICK_CONTROLS_STYLE",    "Fusion");
-
-    // On Wayland with XWayland available, use XCB so Qt.Tool appears on all workspaces
+    // Suppress KWin server-side decorations on Wayland (no-op on X11)
+    qputenv("QT_WAYLAND_DISABLE_WINDOWDECORATION", "1");
+    // On Wayland sessions with XWayland, use XCB: Qt.WindowStaysOnTopHint works
+    // via _NET_WM_STATE_ABOVE on X11 but is silently ignored by the Wayland plugin
     if (!qgetenv("WAYLAND_DISPLAY").isEmpty() && !qgetenv("DISPLAY").isEmpty())
         qputenv("QT_QPA_PLATFORM", "xcb");
 

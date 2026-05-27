@@ -10,7 +10,8 @@
         "--socket=wayland",
         "--device=dri",
         "--filesystem=xdg-config/gtk-3.0:ro",
-        "--env=QT_STYLE_OVERRIDE=Fusion"
+        "--env=QT_STYLE_OVERRIDE=Fusion",
+        "--env=QT_WAYLAND_DISABLE_WINDOWDECORATION=1"
     ],
     "modules": [
         {
