@@ -6,16 +6,20 @@ import QtQuick.Layouts
 Window {
     id: infoDialog
     title: "About Cairo QML Clock"
+    property string appVersion: ""
     width: 300
-    height: 250
+    height: col.implicitHeight + 70
     minimumWidth: 300
-    minimumHeight: 250
+    minimumHeight: height
     flags: Qt.Window
     modality: Qt.NonModal
 
     ColumnLayout {
-        anchors.fill: parent
-        anchors.margins: 20
+        id: col
+        anchors.horizontalCenter: parent.horizontalCenter
+        anchors.top: parent.top
+        anchors.topMargin: 40
+        width: parent.width - 40
         spacing: 10
 
         Label {
@@ -26,7 +30,7 @@ Window {
         }
 
         Label {
-            text: "Version 0.1.0"
+            text: "Version " + appVersion
             Layout.alignment: Qt.AlignHCenter
         }
 
@@ -46,16 +50,18 @@ Window {
             horizontalAlignment: Text.AlignHCenter
             Layout.alignment: Qt.AlignHCenter
         }
+
         Label {
-			text: "Released under GPL v2"
-			Layout.alignment: Qt.AlignHCenter
-		}
+            text: "Released under GPL v2"
+            Layout.alignment: Qt.AlignHCenter
+        }
+
         Label {
-			text: "Developed with AI assistance"
-			horizontalAlignment: Text.AlignHCenter
-			Layout.alignment: Qt.AlignHCenter
-		}
-        
+            text: "Developed with AI assistance"
+            horizontalAlignment: Text.AlignHCenter
+            Layout.alignment: Qt.AlignHCenter
+        }
+
         Button {
             text: "Close"
             Layout.alignment: Qt.AlignHCenter

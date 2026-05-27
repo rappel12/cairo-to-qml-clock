@@ -1,5 +1,50 @@
+cairo-qml-clock (0.2.8-1) stable; urgency=low
+
+  * Fix stayOnTop toggle: use Xlib _NET_WM_STATE_ABOVE client message instead
+    of Qt window flags; eliminates window flash on toggle and correctly removes
+    KWin's unconditional always-on-top caused by _KDE_NET_WM_WINDOW_TYPE_OVERRIDE
+  * Fix frameless window on Wayland/XWayland: replace BypassWindowManagerHint
+    with FramelessWindowHint|Window; add QT_WAYLAND_DISABLE_WINDOWDECORATION=1
+  * Fix window drag on Wayland/XWayland: replace broken startSystemMove() with
+    manual delta tracking via mapToGlobal
+
+ -- Rick Appel <rappel12@gmail.com>  Tue, 27 May 2026 00:00:00 +0000
+
+cairo-qml-clock (0.2.7-1) stable; urgency=low
+
+  * Force Fusion style on all desktops — fixes ComboBox preset display
+  * Add QT_QUICK_CONTROLS_STYLE=Fusion for Flatpak environments
+  * Reduce Properties dialog height to 490
+  * Document Keep on Top as Wayland known limitation
+  * Bump version to 0.2.7
+
+ -- Rick Appel <rappel12@gmail.com>  Sun, 25 May 2026 00:00:00 +0000
+
+cairo-qml-clock (0.2.4-1) stable; urgency=low
+
+  * Set correct Wayland xdg_toplevel app ID and _KDE_NET_WM_DESKTOP_FILE
+    for panel icon matching on both Wayland and X11
+  * Migrate legacy settings from QtProject/Qml Runtime.conf to
+    io.github.rappel12/CairoQmlClock.conf on first launch
+  * Remove StartupWMClass from .desktop; panel matching now uses app ID
+
+ -- Rick Appel <rappel12@gmail.com>  Fri, 23 May 2026 00:00:00 +0000
+
+cairo-qml-clock (0.2.0-1) stable; urgency=low
+
+  * Wayland fixes: context menu dismiss, dialog sizing, all-workspace visibility
+  * GTK appearance improvements for non-KDE desktops
+  * Updated app ID to io.github.rappel12.CairoQmlClock
+
+ -- Rick Appel <rappel12@gmail.com>  Sun, 18 May 2026 00:00:00 +0000
+
 cairo-qml-clock (0.1.0-1) stable; urgency=low
 
   * Initial release
+  * Fix: Properties and Info dialogs now movable on KDE Plasma 6 Wayland
+    (changed window flag from Qt.Dialog to Qt.Window)
+  * Fix: Right-click context menu now dismisses on click-outside on both
+    X11 and Wayland (replaced native Qt Menu popup with custom QML
+    implementation using a transparent overlay MouseArea)
 
- -- Rick Appel <rappel12@gmail.com>  Sat, 12 Apr 2026 12:00:00 +0000
+ -- Rick Appel <rappel12@gmail.com>  Thu, 15 May 2026 12:00:00 +0000

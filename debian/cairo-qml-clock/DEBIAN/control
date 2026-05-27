@@ -1,9 +1,9 @@
 Package: cairo-qml-clock
-Version: 0.1.0-1
-Architecture: all
+Version: 0.2.8-1
+Architecture: amd64
 Maintainer: Rick Appel <rappel12@gmail.com>
-Installed-Size: 5402
-Depends: qml-qt6, wmctrl, xdotool
+Installed-Size: 5431
+Depends: libc6 (>= 2.34), libgcc-s1 (>= 3.0), libqt6core6t64 (>= 6.8.2), libqt6gui6 (>= 6.1.2), libqt6qml6 (>= 6.6.0), libstdc++6 (>= 5), libx11-6
 Section: utils
 Priority: optional
 Homepage: https://github.com/rappel12/cairo-to-qml-clock

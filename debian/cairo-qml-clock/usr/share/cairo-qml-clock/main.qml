@@ -7,13 +7,14 @@ Window {
     id: root
     width: 300
     height: 300
-    visible: true
+    visible: false
     color: "transparent"
     title: "Cairo Clock"
 
 	
 	property string appDir: Qt.resolvedUrl(".").toString().replace("file://", "")
     property string themePath: appDir + "themes/favorites/Anticko/"
+    property string fallbackTheme: appDir + "themes/bundled/radium/"
     property color handColor: "#3a2a1a"
     property color secondColor: "#8b0000"
     property bool stayOnTop: true
@@ -21,10 +22,16 @@ Window {
     property bool showSeconds: true
     property bool showDate: false
     property bool use24h: false
-	property bool stickWorkspace: true
-    property bool isWayland: Qt.platform.pluginName === "wayland"
-    flags: stayOnTop ? Qt.FramelessWindowHint | Qt.WindowStaysOnTopHint | (isWayland ? Qt.Window : Qt.Tool)
-                     : Qt.FramelessWindowHint | (isWayland ? Qt.Window : Qt.Tool)
+    property bool _initialized: false
+    property bool _x11Fixed: false
+
+    onStayOnTopChanged: {
+        if (_initialized)
+            x11helper.setStayOnTop(stayOnTop)
+    }
+
+    property point _dragPressScreen
+    property point _dragWindowOrigin
    Settings {
         id: settings    
         property alias x: root.x
@@ -39,30 +46,49 @@ Window {
         property alias showSeconds: root.showSeconds
         property alias showDate: root.showDate
         property alias use24h: root.use24h
-        property alias stickWorkspace: root.stickWorkspace      
     }
 
-   function getHandColor(path) {
-    var xhr = new XMLHttpRequest()
-    xhr.open("GET", "file://" + path + "theme.conf", false)
-    xhr.send()
-    if (xhr.status === 0 || xhr.status === 200) {
-        var lines = xhr.responseText.split("\n")
-        for (var i = 0; i < lines.length; i++) {
-            var line = lines[i].trim()
-            if (line.startsWith("hand-color=")) {
-                root.handColor = line.split("=")[1].trim()
-            }
-            if (line.startsWith("second-color=")) {
-                root.secondColor = line.split("=")[1].trim()
+    function getHandColor(path) {
+        var xhr = new XMLHttpRequest()
+        xhr.open("GET", "file://" + path + "theme.conf", true)
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState === XMLHttpRequest.DONE) {
+                if (xhr.status === 0 || xhr.status === 200) {
+                    var lines = xhr.responseText.split("\n")
+                    for (var i = 0; i < lines.length; i++) {
+                        var line = lines[i].trim()
+                        if (line.startsWith("hand-color=")) {
+                            root.handColor = line.split("=")[1].trim()
+                        }
+                        if (line.startsWith("second-color=")) {
+                            root.secondColor = line.split("=")[1].trim()
+                        }
+                    }
+                } else {
+                    root.handColor = "#000000"
+                    root.secondColor = "#ff0000"
+                }
             }
         }
-    } else {
-        root.handColor = "#000000"
-        root.secondColor = "#ff0000"
+        xhr.send()
     }
-}
-    Component.onCompleted: getHandColor(root.themePath)
+    Component.onCompleted: {
+        getHandColor(root.themePath)
+        _initialized = true
+        flags = Qt.FramelessWindowHint | Qt.Window
+        visible = true
+    }
+
+    // frameSwapped fires after the first rendered frame — Qt's XCB plugin has
+    // fully mapped the window and set all window-type properties by this point.
+    onFrameSwapped: {
+        if (!_x11Fixed) {
+            _x11Fixed = true
+            x11helper.fixWindowType()
+            x11helper.setStayOnTop(stayOnTop)
+        }
+    }
+
     onActiveChanged: if (!active) contextMenu.visible = false
 
    
@@ -90,8 +116,18 @@ Window {
         onPressed: function(mouse) {
             if (mouse.button === Qt.RightButton)
                 contextMenu.show(mouseX, mouseY)
-            else
-                root.startSystemMove()
+            else {
+                var g = mapToGlobal(mouse.x, mouse.y)
+                root._dragPressScreen = Qt.point(g.x, g.y)
+                root._dragWindowOrigin = Qt.point(root.x, root.y)
+            }
+        }
+        onPositionChanged: function(mouse) {
+            if (mouse.buttons & Qt.LeftButton) {
+                var g = mapToGlobal(mouse.x, mouse.y)
+                root.x = root._dragWindowOrigin.x + (g.x - root._dragPressScreen.x)
+                root.y = root._dragWindowOrigin.y + (g.y - root._dragPressScreen.y)
+            }
         }
     }
 
@@ -137,11 +173,11 @@ Window {
     Item {
         anchors.fill: parent
 
-        Image { anchors.fill: parent; source: themePath + "clock-drop-shadow.svg"; smooth: true; sourceSize: Qt.size(root.width, root.height) }
-        Image { anchors.fill: parent; source: themePath + "clock-face.svg"; smooth: true; sourceSize: Qt.size(root.width, root.height) }
-        Image { anchors.fill: parent; source: themePath + "clock-face-shadow.svg"; smooth: true; sourceSize: Qt.size(root.width, root.height) }
-        Image { anchors.fill: parent; source: themePath + "clock-marks.svg"; smooth: true; sourceSize: Qt.size(root.width, root.height) }
-        Image { anchors.fill: parent; source: themePath + "clock-frame.svg"; smooth: true; sourceSize: Qt.size(root.width, root.height) }
+        ThemeImage { filename: "clock-drop-shadow.svg" }
+        ThemeImage { filename: "clock-face.svg" }
+        ThemeImage { filename: "clock-face-shadow.svg" }
+        ThemeImage { filename: "clock-marks.svg" }
+        ThemeImage { filename: "clock-frame.svg" }
 
         Canvas {
             id: canvas
@@ -200,13 +236,15 @@ Window {
             }
         }
 
-        Image { anchors.fill: parent; source: themePath + "clock-glass.svg"; smooth: true; sourceSize: Qt.size(root.width, root.height) }
+        ThemeImage { filename: "clock-glass.svg" }
     }
+
 PropertiesDialog {
         id: propWindow
         clockRoot: root
     }
  InfoDialog {
         id: infoWindow
+        appVersion: Qt.application.version
     }
 }

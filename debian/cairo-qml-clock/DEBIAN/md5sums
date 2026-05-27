@@ -1,8 +1,9 @@
-273796cb62c75972f05264c6ead0d01e  usr/bin/cairo-qml-clock
-74f80e7b530a560eafc0a2f897c7f5c4  usr/share/applications/cairo-qml-clock.desktop
-826c2bcb9436767f873413749b72cda7  usr/share/cairo-qml-clock/InfoDialog.qml
-5067b3f3e283d2e219ae5252c44bd016  usr/share/cairo-qml-clock/PropertiesDialog.qml
-1b1258a29f178f699f7772df58870fd1  usr/share/cairo-qml-clock/main.qml
+ed0769ccbf74b9a73d934c69c30c1bbe  usr/bin/cairo-qml-clock
+91442814ece20570ec25e1d177a047a0  usr/share/applications/io.github.rappel12.CairoQmlClock.desktop
+480a8cebf46d948d84e43a0a77ae662e  usr/share/cairo-qml-clock/InfoDialog.qml
+4770fb4e719f7bbf7f20668425ca1aa3  usr/share/cairo-qml-clock/PropertiesDialog.qml
+8cf2e4f82c050dec137375481e86f444  usr/share/cairo-qml-clock/ThemeImage.qml
+8b6a8ff81f779122e4ec237934b49073  usr/share/cairo-qml-clock/main.qml
 e6270708c89cd5cdf87eb24677b07204  usr/share/cairo-qml-clock/themes/bundled/antique/clock-drop-shadow.svg
 6cffc0245152b4584d984900fb837038  usr/share/cairo-qml-clock/themes/bundled/antique/clock-face-shadow.svg
 f7c41a9b8e01cb2dbc2f894f834b65b9  usr/share/cairo-qml-clock/themes/bundled/antique/clock-face.svg
@@ -476,7 +477,7 @@ b29d84256e005cc3b4214ffeafe46364  usr/share/cairo-qml-clock/themes/favorites/woo
 fb1e65a73c15b687cd8c8e0d80bda874  usr/share/cairo-qml-clock/themes/favorites/wood/clock-second-hand-shadow.svg
 029f0a5e22499fcbf6a83374c67d5790  usr/share/cairo-qml-clock/themes/favorites/wood/clock-second-hand.svg
 a49f2d5f2dade780742ad2ef6e6827e5  usr/share/cairo-qml-clock/themes/favorites/wood/theme.conf
-0f01c9f7d9dcb5df565b4b841dcbd106  usr/share/doc/cairo-qml-clock/changelog.Debian.gz
+9e1d3e6c9171bb264b46d5f24dd94ab1  usr/share/doc/cairo-qml-clock/changelog.Debian.gz
 f371fa60af537df9e252465d56a9fbb4  usr/share/doc/cairo-qml-clock/copyright
-788ec11a6d0eae2f0f3f1f51f7f9d806  usr/share/icons/hicolor/128x128/apps/cairo-qml-clock.png
-835239d49046a2380a3d0737871083c4  usr/share/metainfo/cairo-qml-clock.metainfo.xml
+465e371d842de42f48fc9deb19427689  usr/share/icons/hicolor/128x128/apps/io.github.rappel12.CairoQmlClock.png
+632a733d384049e1515775e2ec8d10ac  usr/share/metainfo/io.github.rappel12.CairoQmlClock.metainfo.xml
