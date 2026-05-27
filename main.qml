@@ -23,15 +23,11 @@ Window {
     property bool showDate: false
     property bool use24h: false
     property bool _initialized: false
+    property bool _x11Fixed: false
 
     onStayOnTopChanged: {
-        if (_initialized) {
-            flags = stayOnTop
-                ? Qt.FramelessWindowHint | Qt.WindowStaysOnTopHint | Qt.Window
-                : Qt.FramelessWindowHint | Qt.Window
-            hide()
-            show()
-        }
+        if (_initialized)
+            x11helper.setStayOnTop(stayOnTop)
     }
 
     property point _dragPressScreen
@@ -79,11 +75,20 @@ Window {
     Component.onCompleted: {
         getHandColor(root.themePath)
         _initialized = true
-        flags = stayOnTop
-            ? Qt.FramelessWindowHint | Qt.WindowStaysOnTopHint | Qt.Window
-            : Qt.FramelessWindowHint | Qt.Window
+        flags = Qt.FramelessWindowHint | Qt.Window
         visible = true
     }
+
+    // frameSwapped fires after the first rendered frame — Qt's XCB plugin has
+    // fully mapped the window and set all window-type properties by this point.
+    onFrameSwapped: {
+        if (!_x11Fixed) {
+            _x11Fixed = true
+            x11helper.fixWindowType()
+            x11helper.setStayOnTop(stayOnTop)
+        }
+    }
+
     onActiveChanged: if (!active) contextMenu.visible = false
 
    
