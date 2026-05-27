@@ -1,5 +1,5 @@
 Name:           cairo-qml-clock
-Version:        0.2.7
+Version:        0.2.8
 Release:        1%{?dist}
 Summary:        A cairo-clock replacement built with Qt6 QML
 License:        GPLv2
@@ -10,6 +10,7 @@ BuildRequires:  cmake
 BuildRequires:  gcc-c++
 BuildRequires:  qt6-qtbase-devel
 BuildRequires:  qt6-qtdeclarative-devel
+BuildRequires:  libX11-devel
 %description
 A modern reimplementation of MacSlow's cairo-clock using Qt6 QML.
 Runs on modern Linux systems without deprecated dependencies.
@@ -32,6 +33,13 @@ DESTDIR=%{buildroot} cmake --install build
 /usr/share/cairo-qml-clock/
 
 %changelog
+* Tue May 27 2026 Rick Appel <rappel12@gmail.com> - 0.2.8-1
+- Fix stayOnTop toggle: Xlib _NET_WM_STATE_ABOVE client message replaces Qt
+  flags; no window flash, removes KWin unconditional always-on-top
+- Fix frameless window on Wayland/XWayland: FramelessWindowHint|Window +
+  QT_WAYLAND_DISABLE_WINDOWDECORATION=1
+- Fix window drag on Wayland/XWayland: manual mapToGlobal delta tracking
+
 * Sun May 25 2026 Rick Appel <rappel12@gmail.com> - 0.2.7-1
 - Add QT_QUICK_CONTROLS_STYLE=Fusion for Flatpak ComboBox fix
 - Remove gtk3 platform theme override — Fusion style on all desktops

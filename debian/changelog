@@ -1,3 +1,15 @@
+cairo-qml-clock (0.2.8-1) stable; urgency=low
+
+  * Fix stayOnTop toggle: use Xlib _NET_WM_STATE_ABOVE client message instead
+    of Qt window flags; eliminates window flash on toggle and correctly removes
+    KWin's unconditional always-on-top caused by _KDE_NET_WM_WINDOW_TYPE_OVERRIDE
+  * Fix frameless window on Wayland/XWayland: replace BypassWindowManagerHint
+    with FramelessWindowHint|Window; add QT_WAYLAND_DISABLE_WINDOWDECORATION=1
+  * Fix window drag on Wayland/XWayland: replace broken startSystemMove() with
+    manual delta tracking via mapToGlobal
+
+ -- Rick Appel <rappel12@gmail.com>  Tue, 27 May 2026 00:00:00 +0000
+
 cairo-qml-clock (0.2.7-1) stable; urgency=low
 
   * Force Fusion style on all desktops — fixes ComboBox preset display
