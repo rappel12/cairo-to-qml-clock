@@ -39,14 +39,14 @@ Developed by Rick Appel with AI assistance as a learning project. GPL v2 license
 ### Easy Install (Recommended)
 
 Download the latest packages from the
-[v0.2.0 release](https://github.com/rappel12/cairo-to-qml-clock/releases/tag/v0.2.0).
+[v0.2.8 release](https://github.com/rappel12/cairo-to-qml-clock/releases/tag/v0.2.8).
 
 **Debian/MX Linux/Ubuntu**
-sudo dpkg -i cairo-qml-clock_0.2.0-1_all.deb
+sudo dpkg -i cairo-qml-clock_0.2.8-1_all.deb
 sudo apt-get install -f
 
 **Fedora/PCLinuxOS**
-sudo rpm -i v0.2.0 release
+sudo rpm -i v0.2.8 release
 
 The `.deb` package automatically installs all dependencies. The RPM package
 is compatible with Fedora, PCLinuxOS, and other RPM-based distros. The `fc43`
