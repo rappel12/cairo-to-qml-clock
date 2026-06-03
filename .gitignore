@@ -6,3 +6,7 @@ build-dir/
 cairo-qml-clock.flatpak
 config.h
 build-local/
+.flatpak-builder/
+obj-x86_64-linux-gnu/
+debian/.debhelper/
+cairo-qml-clock_*.deb
