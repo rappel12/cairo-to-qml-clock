@@ -113,10 +113,38 @@ The clock works on Wayland sessions. All-workspace sticking requires XWayland
 to be present (both `WAYLAND_DISPLAY` and `DISPLAY` set), which is the case on
 all major desktops — GNOME, Cinnamon, KDE, XFCE — when XWayland is enabled.
 
+On **KDE Plasma Wayland**, the clock uses the native Wayland path (no XWayland
+required) and workspace behavior is managed by KWin.
+
 On **pure Wayland** sessions with XWayland explicitly disabled, the clock runs
 normally but is confined to the workspace it was launched on. This is a Wayland
 compositor limitation: there is no standard Wayland protocol for pinning a
 window to all workspaces.
 
-On **KDE Plasma Wayland**, the clock uses the native Wayland path (no XWayland
-required) and workspace behavior is managed by KWin.
+## Issue #6 — Scene Graph Refactor: Architectural Constraint
+
+**Read this before writing any code for Issue #6.**
+
+The SVG hand files contain embedded PNGs with offset pivot points. All pivot
+compensation currently lives in the Canvas JavaScript:
+
+    ctx.save()
+    ctx.translate(cx, cy)
+    ctx.rotate(angle)
+    ctx.drawImage(handImage, ...)
+    ctx.restore()
+
+ThemeImage.qml has no knowledge of clock geometry. It handles image loading,
+fallback, and sizing only. Do not modify ThemeImage.qml for this refactor.
+
+**Required before writing any refactor code:**
+
+1. Examine the actual pivot offset values in the current Canvas code.
+2. Propose a QML Rotation transform strategy that correctly replicates the
+   pivot behavior for each hand (hour, minute, second).
+3. Confirm that ThemeImage.qml requires no changes.
+4. Get that design approved before touching main.qml.
+
+Do not assume that applying `rotation:` natively to a ThemeImage will behave
+correctly. It will rotate around the image center, not the clock's center pin.
+
