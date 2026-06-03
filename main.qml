@@ -200,7 +200,7 @@ Window {
                 ctx.lineCap = "round"
                 ctx.stroke()
 
-                var mn = (root.minutes * 6) * Math.PI / 180 - Math.PI / 2
+                var mn = (root.minutes * 6 + root.seconds * 0.1) * Math.PI / 180 - Math.PI / 2
                 ctx.beginPath()
                 ctx.moveTo(cx, cy)
                 ctx.lineTo(cx + Math.cos(mn) * r * 0.72, cy + Math.sin(mn) * r * 0.72)

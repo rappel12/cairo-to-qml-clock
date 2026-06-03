@@ -36,3 +36,27 @@ fallback, and sizing only. Do not modify ThemeImage.qml for this refactor.
 
 Do not assume that applying `rotation:` natively to a ThemeImage will behave
 correctly. It will rotate around the image center, not the clock's center pin.
+
+## Issue #6 — Resolution Notes (June 2026)
+
+Investigation confirmed that the Scene Graph refactor described above is
+already largely implemented. Face layers are already ThemeImage items.
+The Canvas is already scoped exclusively to hand rendering and date display.
+
+The SVG overflow clipping problem was investigated and found to affect all
+210 hand SVG files across 35 themes. The hand tails (counterweights) extend
+beyond the pivot point into negative SVG x-space and would be clipped by
+native QML Image viewport bounds. Modifying all 210 SVG files was deemed
+out of scope for this refactor.
+
+Decision: Canvas hand rendering is retained intentionally. This is not a
+bug or an oversight — it is the correct solution given the SVG file structure.
+Do not attempt to replace Canvas hand drawing with native QML Image rotation
+without first resolving the overflow clipping issue in the SVG files.
+
+What was fixed: The minute hand angle calculation was corrected to include
+a seconds component (root.seconds * 0.1), matching the hour hand's behavior.
+The minute hand now sweeps continuously at smoothness=3 with no visible
+change at lower smoothness settings.
+
+Issue #6 is closed. Open a new issue if pursuing the SVG overflow fix.
