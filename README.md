@@ -80,6 +80,47 @@ Qt6 qml path varies by distro:
 - `picom` — recommended for transparency on Fluxbox/Openbox
 - Flatpak requires `org.kde.Platform//6.9` runtime (installed automatically from Flathub)
 
+## Raspberry Pi / ARM64
+
+Successfully built and running on Raspberry Pi 5 (8GB) with Armbian 26.5,
+based on Ubuntu 26.04 LTS (Resolute Raccoon), kernel 7.0, KDE Plasma 6.
+
+### Build from source on Raspberry Pi 5
+
+Install build dependencies:
+
+    sudo apt install cmake build-essential qt6-base-dev qt6-declarative-dev libx11-dev qml-qt6
+
+Then build and install as described in "Build from Source" above:
+
+    git clone https://github.com/rappel12/cairo-to-qml-clock.git
+    cd cairo-to-qml-clock
+    mkdir build && cd build
+    cmake ..
+    make -j4
+    sudo make install
+    cairo-qml-clock
+
+Qt 6.10.2 (the version available in Armbian 26.5 repos) builds and runs
+the full application, including the X11Helper C++ component for
+frameless window, drag, and always-on-top — all confirmed working.
+
+### Autostart on Pi (KDE Plasma)
+
+Create ~/.config/autostart/cairo-qml-clock.desktop:
+
+    [Desktop Entry]
+    Type=Application
+    Name=Cairo QML Clock
+    Exec=/usr/local/bin/cairo-qml-clock
+    Terminal=false
+    X-GNOME-Autostart-enabled=true
+
+### Raspberry Pi 4
+
+Not yet tested. The Pi 4 has less GPU capability than the Pi 5; results
+may vary, particularly with multiple themes or larger clock sizes.
+
 ## Fluxbox/Openbox Notes
 
 Picom is required for window transparency. Add to `~/.fluxbox/startup`
