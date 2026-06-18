@@ -10,3 +10,9 @@ build-local/
 obj-x86_64-linux-gnu/
 debian/.debhelper/
 cairo-qml-clock_*.deb
+debian/cairo-qml-clock/
+debian/.debhelper/
+debian/debhelper-build-stamp
+debian/files
+*.substvars
+obj-*/
