@@ -41,16 +41,19 @@ Developed by Rick Appel with AI assistance as a learning project. GPL v2 license
 Download the latest packages from the
 [v0.2.8 release](https://github.com/rappel12/cairo-to-qml-clock/releases/tag/v0.2.8).
 
-**Debian/MX Linux/Ubuntu**
-sudo dpkg -i cairo-qml-clock_0.2.8-1_all.deb
+**Debian/MX Linux/Ubuntu (amd64)**
+sudo dpkg -i cairo-qml-clock_0.2.8-1_amd64.deb
+sudo apt-get install -f
+
+**Raspberry Pi 5 / ARM64 (Debian/Ubuntu-based)**
+sudo dpkg -i cairo-qml-clock_0.2.8-1_arm64.deb
 sudo apt-get install -f
 
 **Fedora/PCLinuxOS**
-sudo rpm -i v0.2.8 release
+sudo rpm -i cairo-qml-clock-0.2.8-1.x86_64.rpm
 
 The `.deb` package automatically installs all dependencies. The RPM package
-is compatible with Fedora, PCLinuxOS, and other RPM-based distros. The `fc43`
-label in the filename is cosmetic only and does not affect compatibility.
+is compatible with Fedora, PCLinuxOS, and other RPM-based distros. 
 
 **Flatpak (all distros)**
 ```
@@ -65,7 +68,7 @@ git clone https://github.com/rappel12/cairo-to-qml-clock.git
 cd cairo-to-qml-clock
 sudo apt install devscripts debhelper
 dpkg-buildpackage -us -uc -b
-sudo dpkg -i ../cairo-qml-clock_0.2.0-1_all.deb
+sudo dpkg -i ../cairo-qml-clock_0.2.8-1_<arch>.deb
 
 ### Manual Run (without installing)
 QML_XHR_ALLOW_FILE_READ=1 /usr/lib/qt6/bin/qml main.qml
@@ -84,6 +87,14 @@ Qt6 qml path varies by distro:
 
 Successfully built and running on Raspberry Pi 5 (8GB) with Armbian 26.5,
 based on Ubuntu 26.04 LTS (Resolute Raccoon), kernel 7.0, KDE Plasma 6.
+
+### Easy Install on Raspberry Pi 5
+
+A prebuilt arm64 `.deb` is available on the
+[v0.2.8 release page](https://github.com/rappel12/cairo-to-qml-clock/releases/tag/v0.2.8):
+
+    sudo dpkg -i cairo-qml-clock_0.2.8-1_arm64.deb
+    sudo apt-get install -f
 
 ### Build from source on Raspberry Pi 5
 
